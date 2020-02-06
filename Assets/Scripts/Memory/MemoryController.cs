@@ -4,35 +4,55 @@ using UnityEngine;
 public static class MemoryController
 {
     [Header("Variables")]
+    private static int currentGameNumber = 1;
     private static string randomizedNumber = "";
     private static string selectedNumber = "";
 
-    public static string RandomizeNumber
-    {
-        get
-        {
+    private static int goodAnswers = 0;
+    private static int numberOfGames = 3;
+
+    public static void NextGame() {
+        currentGameNumber++;  
+    }
+
+    public static int GetGameNumber() {
+        return currentGameNumber;
+    }
+
+    public static bool IsLastGame() {
+        return currentGameNumber == numberOfGames;
+    }
+
+    public static string RandomizeNumber {
+        get {
             return randomizedNumber;
         }
         set {
             randomizedNumber = value;
-            Debug.Log("randomized: [" + randomizedNumber + "]");
         }
     }
 
-    public static string SelectNumber
-    {
-        get
-        {
+    public static string SelectNumber {
+        get {
             return selectedNumber;
         }
         set {
             selectedNumber = value;
-            Debug.Log("selected: [" + selectedNumber + "]");
+            CompareText();
         }
     }
 
     public static void CompareText() {
         Boolean result = String.Compare(randomizedNumber, selectedNumber) == 0;
-        Debug.Log("same: " + result);
-    }  
+        if(result) goodAnswers++;   
+    } 
+
+    public static string GetResult() {
+        return goodAnswers + " / " + numberOfGames;
+    } 
+
+    public static void ClearResult() {
+        goodAnswers = 0;
+        currentGameNumber = 1;
+    }
 }

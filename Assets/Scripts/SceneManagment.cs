@@ -9,7 +9,7 @@ public enum ButtonName
 	Initialize,
     StartGame,
     Menu,
-    Memory
+    StartMemory
 }
 
 public class SceneManagment : MonoBehaviour 
@@ -40,8 +40,9 @@ public class SceneManagment : MonoBehaviour
 				SceneManager.LoadScene("Menu");
 				break;
 
-            case ButtonName.Memory:
-				SceneManager.LoadScene("Memory");
+            case ButtonName.StartMemory:
+				MemoryController.ClearResult();
+				SceneManager.LoadScene("MemoryStart");
 				break;
 
 			default:

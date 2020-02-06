@@ -651,7 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomizedNumberText: {fileID: 578283864}
   timerText: {fileID: 179543680}
-  timerStop: 3
+  timerStop: 2
   numberLength: 5
 --- !u!1 &1719079615
 GameObject:

@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Memory\RandomizeNumber.cs" />
      <Compile Include="Assets\Scripts\Memory\SelectNumber.cs" />
      <Compile Include="Assets\Scripts\SceneManagment.cs" />
+     <Compile Include="Assets\Scripts\ShowResult.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Gra sterowana wzrokiem/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

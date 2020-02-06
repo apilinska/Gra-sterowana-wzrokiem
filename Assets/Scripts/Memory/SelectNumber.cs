@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectNumber : MonoBehaviour
@@ -12,45 +14,42 @@ public class SelectNumber : MonoBehaviour
     private int index = 0;
     private int count = 5;
     private string selected = "";
-    
+
     void Start()
     {
         addCLickListeners();
     }
 
-    void Update()
-    {
-
-    }
-
-    void selectNumber() {
-        clearNumbers();
-    }
-
     void addCLickListeners() {
         foreach(Button button in keyboard) {
             Text number = button.GetComponentInChildren<Text>();
-            button.onClick.AddListener(() => selectNumber(number));
+            button.onClick.AddListener(() => selectNumber(number.text));
         }
     }
 
-    private void selectNumber(Text number) {
-        if(index == count) {
-            MemoryController.SelectNumber = selected;
-            MemoryController.CompareText();
-            clearNumbers();
-            index = 0;
-        }
-
-        selectedNumbers[index].text = number.text;
-        selected += number.text;
+    private void setNumber(string number) {
+        selectedNumbers[index].text = number;
+        selected += number;
         index++;
     }
 
-    private void clearNumbers() {
-        foreach(Text number in selectedNumbers) {
-            number.text = "";
+    private void selectNumber(string number) {
+        if(index < count) {
+            setNumber(number);
+            if(index == count) {
+                StartCoroutine(endGame());
+            }
         }
-        selected = "";
+    }
+
+    private IEnumerator endGame() {
+        MemoryController.SelectNumber = selected;
+        yield return new WaitForSeconds(1);
+        if(MemoryController.IsLastGame()) {
+            SceneManager.LoadScene("MemoryResult");
+        } else {
+            MemoryController.NextGame();
+            SceneManager.LoadScene("MemoryStart");
+        }
     }
 }
