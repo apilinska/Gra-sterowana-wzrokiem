@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public enum ButtonName 
 {
 	Initialize,
-    StartGame,
+    MemoryStartMenu,
+	VisionStartMenu,
     Menu,
-    StartMemory
+    StartMemory,
+	StartVision
 }
 
 public class SceneManagment : MonoBehaviour 
@@ -32,8 +34,12 @@ public class SceneManagment : MonoBehaviour
 				SceneManager.LoadScene("Initialize");
 				break;
 
-            case ButtonName.StartGame:
-				SceneManager.LoadScene("Start game");
+            case ButtonName.MemoryStartMenu:
+				SceneManager.LoadScene("MemoryStartMenu");
+				break;
+
+			case ButtonName.VisionStartMenu:
+				SceneManager.LoadScene("VisionStartMenu");
 				break;
 
             case ButtonName.Menu:

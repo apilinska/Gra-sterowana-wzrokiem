@@ -27,7 +27,7 @@ public class RandomizeNumber : MonoBehaviour
         timer += Time.deltaTime;
         timerText.text = Math.Round(timer, 1).ToString();
         if(timer >= timerStop) {
-            SceneManager.LoadScene("Select");
+            SceneManager.LoadScene("MemorySelect");
         }
     }
 
