@@ -920,9 +920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - buttonName: 4
+  - buttonName: 6
     buttonItem: {fileID: 769014850}
-  - buttonName: 3
+  - buttonName: 5
     buttonItem: {fileID: 968022926}
 --- !u!114 &1293462112
 MonoBehaviour:

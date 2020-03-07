@@ -32,4 +32,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vision/VisionResult.unity
     guid: 687eaa280ef96364b802a1d34253c3e3
+  - enabled: 1
+    path: Assets/Scenes/Start game/DexterityStartMenu.unity
+    guid: 74bf9ef141d257445aaa7fb0c8bd3ecd
+  - enabled: 1
+    path: Assets/Scenes/Dexterity/DexterityGame.unity
+    guid: 680a3f89ec0cf0240b02676e5f9b9e8d
+  - enabled: 1
+    path: Assets/Scenes/Dexterity/DexterityResult.unity
+    guid: b60ad3dfd93035c48a058fbad7fcdb61
+  - enabled: 1
+    path: Assets/Scenes/Start game/AttentionStartMenu.unity
+    guid: f439871f358d6cc44a1a6d92866ce702
   m_configObjects: {}

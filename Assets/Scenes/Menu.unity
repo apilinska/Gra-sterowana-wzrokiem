@@ -997,9 +997,9 @@ MonoBehaviour:
     buttonItem: {fileID: 7078283710406969080}
   - buttonName: 1
     buttonItem: {fileID: 116221707}
-  - buttonName: 1
+  - buttonName: 3
     buttonItem: {fileID: 125338113}
-  - buttonName: 1
+  - buttonName: 4
     buttonItem: {fileID: 1030255224}
 --- !u!1 &1607459758
 GameObject:

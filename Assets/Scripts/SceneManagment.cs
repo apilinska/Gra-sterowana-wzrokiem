@@ -9,9 +9,13 @@ public enum ButtonName
 	Initialize,
     MemoryStartMenu,
 	VisionStartMenu,
+	DexterityStartMenu,
+	AttentionStartMenu,
     Menu,
     StartMemory,
-	StartVision
+	StartVision,
+	StartDexterity,
+	StartAttention
 }
 
 public class SceneManagment : MonoBehaviour 
@@ -34,22 +38,31 @@ public class SceneManagment : MonoBehaviour
 				SceneManager.LoadScene("Initialize");
 				break;
 
+			case ButtonName.Menu:
+				SceneManager.LoadScene("Menu");
+				break;
+
             case ButtonName.MemoryStartMenu:
 				SceneManager.LoadScene("MemoryStartMenu");
+				break;
+
+			case ButtonName.DexterityStartMenu:
+				SceneManager.LoadScene("DexterityStartMenu");
 				break;
 
 			case ButtonName.VisionStartMenu:
 				SceneManager.LoadScene("VisionStartMenu");
 				break;
 
-            case ButtonName.Menu:
-				SceneManager.LoadScene("Menu");
-				break;
-
             case ButtonName.StartMemory:
 				MemoryController.ClearResult();
 				SceneManager.LoadScene("MemoryStart");
 				break;
+
+			case ButtonName.StartDexterity:
+				MemoryController.ClearResult();
+				SceneManager.LoadScene("DexterityGame");
+				break;	
 
 			default:
 				Debug.Log("Error");

@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\Device\QLTypes.cs" />
      <Compile Include="Assets\Scripts\Device\QuickLink2.cs" />
      <Compile Include="Assets\Scripts\Device\StartDevice.cs" />
+     <Compile Include="Assets\Scripts\Dexterity\ObstacleController.cs" />
+     <Compile Include="Assets\Scripts\Dexterity\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Memory\MemoryController.cs" />
      <Compile Include="Assets\Scripts\Memory\RandomizeNumber.cs" />
      <Compile Include="Assets\Scripts\Memory\SelectNumber.cs" />

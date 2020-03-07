@@ -921,9 +921,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - buttonName: 2
+  - buttonName: 7
     buttonItem: {fileID: 769014850}
-  - buttonName: 3
+  - buttonName: 5
     buttonItem: {fileID: 968022926}
 --- !u!1 &1816415794
 GameObject:
