@@ -8,6 +8,7 @@ TagManager:
   - obstacle
   - bonus
   - floor
+  - obstacleFading
   layers:
   - Default
   - TransparentFX

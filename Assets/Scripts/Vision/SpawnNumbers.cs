@@ -31,7 +31,8 @@ public class SpawnNumbers : MonoBehaviour
             GameObject newNumber = Instantiate(numberPrefab);
             newNumber.GetComponentInChildren<Text>().text = (i+1).ToString();
             newNumber.transform.SetParent(this.transform, false);
-            newNumber.transform.localPosition = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), 0);
+            newNumber.transform.localPosition = new Vector3(
+                Random.Range(xMin, xMax), Random.Range(yMin, yMax), 0);
         }
     }
 }

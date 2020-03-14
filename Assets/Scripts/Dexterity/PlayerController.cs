@@ -27,14 +27,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log(this.gameObject.tag + " on collision with " + col.gameObject.tag);
         if(col.gameObject.tag == "obstacle"){
             SceneManager.LoadScene("DexterityResult");
+        } else if(col.gameObject.tag == "bonus"){
+            DexterityController.CatchBonus();
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        Debug.Log(this.gameObject.tag + " on trigger with " + col.gameObject.tag);
     }
 }

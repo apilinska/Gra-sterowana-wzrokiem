@@ -15,7 +15,6 @@ public class StartDevice : MonoBehaviour
     private System.Single rightRadius;
     private int distance = 53;
 
-    //private QLFrameData frameData = new QLFrameData();
 
     void Start()
     {
