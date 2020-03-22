@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8803281157183621668}
   m_Layer: 5
   m_Name: ButtonBox
-  m_TagString: Untagged
+  m_TagString: button_box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box_selected: {fileID: 21300000, guid: dbbbf4f964019474f9c19337d038de84, type: 3}
   box: {fileID: 21300000, guid: 2f6146ae301ce6249b0b0e6f57a867e9, type: 3}
-  trigger: {fileID: 6367018329361215001}
 --- !u!1 &6927967142442045904
 GameObject:
   m_ObjectHideFlags: 0

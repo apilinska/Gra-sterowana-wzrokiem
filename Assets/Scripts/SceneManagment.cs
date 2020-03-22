@@ -15,7 +15,9 @@ public enum ButtonName
     StartMemory,
 	StartVision,
 	StartDexterity,
-	StartAttention
+	StartAttention,
+	StartMath,
+	MathStartMenu
 }
 
 public class SceneManagment : MonoBehaviour 
@@ -62,7 +64,15 @@ public class SceneManagment : MonoBehaviour
 			case ButtonName.StartDexterity:
 				MemoryController.ClearResult();
 				SceneManager.LoadScene("DexterityGame");
-				break;	
+				break;
+
+			case ButtonName.MathStartMenu:
+				SceneManager.LoadScene("MathStartMenu");
+				break;
+
+			case ButtonName.StartMath:
+				SceneManager.LoadScene("MathGame");
+				break;
 
 			default:
 				Debug.Log("Error");

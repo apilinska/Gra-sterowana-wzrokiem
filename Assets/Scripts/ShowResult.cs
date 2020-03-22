@@ -8,7 +8,8 @@ public enum Game
 	Memory,
     Dexterity,
     Attention,
-    Vision
+    Vision,
+    Math
 }
 
 public class ShowResult : MonoBehaviour
@@ -28,6 +29,9 @@ public class ShowResult : MonoBehaviour
 
             case Game.Dexterity:
                 return DexterityController.GetResult();
+
+            case Game.Math:
+                return MathController.GetResult();
 
             default:
                 return "";

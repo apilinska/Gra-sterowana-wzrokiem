@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Math\BoardGenerator.cs" />
      <Compile Include="Assets\Scripts\Math\ButtonBoxController.cs" />
      <Compile Include="Assets\Scripts\Math\MathController.cs" />
+     <Compile Include="Assets\Scripts\Math\NumberBoxController.cs" />
      <Compile Include="Assets\Scripts\Memory\MemoryController.cs" />
      <Compile Include="Assets\Scripts\Memory\RandomizeNumber.cs" />
      <Compile Include="Assets\Scripts\Memory\SelectNumber.cs" />

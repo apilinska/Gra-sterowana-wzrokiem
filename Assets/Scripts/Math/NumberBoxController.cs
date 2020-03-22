@@ -3,27 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonBoxController : MonoBehaviour
+public enum State {
+    ROW,
+    COLUMN
+}
+
+public class NumberBoxController : MonoBehaviour
 {
     [Header("Sprites")]
     public Sprite box_selected;
     public Sprite box;
 
     private bool selected;
-    private int i = 0;
-    private int j = 0;
     private int number;
+    private State state;
+    private int i = 0;
 
 
     void Start()
     {
-        SelectButton();
-        GetComponent<Button>().onClick.AddListener(() => ChangeState());
+        UnselectButton();
     }
 
-    public void SetCoordinates(int i, int j) {
+    public void SetCoordinates(State state, int i) {
+        this.state = state;
         this.i = i;
-        this.j = j;
     }
 
     public void SetNumber(int number) {
@@ -31,25 +35,19 @@ public class ButtonBoxController : MonoBehaviour
         GetComponentInChildren<Text>().text = number.ToString();
     }
 
-    public void SetNumberAndCoordinates(int number, int i, int j) {
-        SetNumber(number);
-        SetCoordinates(i, j);
-    }
-
     public int GetNumber() {
         return this.number;
     }
 
-    public int GetNumberIfSelected() {
-        if(selected) return number;
-        else return 0;
-    }
+    public bool ChangeState(int sum) {
+        bool previousState = selected;
+        if(sum == number) {
+            SelectButton();
+        } else {
+            UnselectButton();
+        }
 
-    void ChangeState() {
-        MathController.NewMove();
-        if(selected) UnselectButton();
-        else SelectButton();
-        GetComponentInParent<BoardController>().ChangeState(i,j);
+        return (previousState ^ selected);
     }
 
     void SelectButton() {

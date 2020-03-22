@@ -9,6 +9,9 @@ TagManager:
   - bonus
   - floor
   - obstacleFading
+  - button_box
+  - empty_box
+  - number_box
   layers:
   - Default
   - TransparentFX

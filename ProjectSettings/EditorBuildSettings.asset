@@ -44,4 +44,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start game/AttentionStartMenu.unity
     guid: f439871f358d6cc44a1a6d92866ce702
+  - enabled: 1
+    path: Assets/Scenes/Math/MathGame.unity
+    guid: 7ef304e250ed811409608f5ebec2e2b1
+  - enabled: 1
+    path: Assets/Scenes/Math/MathResult.unity
+    guid: 41da49717fd00f2479604ed4bf9ce491
+  - enabled: 1
+    path: Assets/Scenes/Start game/MathStartMenu.unity
+    guid: 60bd7bdf5197c1b4d922591c723ee916
   m_configObjects: {}

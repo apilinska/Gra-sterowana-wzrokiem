@@ -214,18 +214,24 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1563c7f3b5ff1734ba85556a2f0b4ffa,
+      objectReference: {fileID: 21300000, guid: 43c6cc398d1436349a51e5bf67f14a76,
         type: 3}
     - target: {fileID: 7078283710585304043, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_Text
-      value: WIDZENIE PERYFERYJNE
+      value: "LOGIK\u0118 MATEMATYCZN\u0104"
       objectReference: {fileID: 0}
     - target: {fileID: 7078283710585304045, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_Name
-      value: WIDZENIE PERYFERYJNE
+      value: "LOGIK\u0118 MATEMATYCZN\u0104"
       objectReference: {fileID: 0}
+    - target: {fileID: 7078283711004473638, guid: 10818a747333f6449992486cf5ea071f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b5061b0ececd7f444bef6bdb65826ae0,
+        type: 3}
     - target: {fileID: 7078283711004473656, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -334,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 7078283711004473657, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_Name
-      value: Vision button
+      value: Math button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10818a747333f6449992486cf5ea071f, type: 3}
@@ -995,7 +1001,7 @@ MonoBehaviour:
   buttons:
   - buttonName: 1
     buttonItem: {fileID: 7078283710406969080}
-  - buttonName: 1
+  - buttonName: 11
     buttonItem: {fileID: 116221707}
   - buttonName: 3
     buttonItem: {fileID: 125338113}
@@ -1011,7 +1017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1607459759}
   m_Layer: 5
-  m_Name: Vision button panel
+  m_Name: Math button panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
