@@ -54,6 +54,10 @@
      <Compile Include="Assets\Scripts\Dexterity\ObstacleController.cs" />
      <Compile Include="Assets\Scripts\Dexterity\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Dexterity\SpawnObstaclesController.cs" />
+     <Compile Include="Assets\Scripts\Math\BoardController.cs" />
+     <Compile Include="Assets\Scripts\Math\BoardGenerator.cs" />
+     <Compile Include="Assets\Scripts\Math\ButtonBoxController.cs" />
+     <Compile Include="Assets\Scripts\Math\MathController.cs" />
      <Compile Include="Assets\Scripts\Memory\MemoryController.cs" />
      <Compile Include="Assets\Scripts\Memory\RandomizeNumber.cs" />
      <Compile Include="Assets\Scripts\Memory\SelectNumber.cs" />
