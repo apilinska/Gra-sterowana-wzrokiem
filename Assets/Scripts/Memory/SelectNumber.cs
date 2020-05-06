@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SelectNumber : MonoBehaviour
+public class SelectNumber : DbConnect
 {
     [Header("Buttons")]
     public Button[] keyboard;
@@ -46,10 +46,17 @@ public class SelectNumber : MonoBehaviour
         MemoryController.SelectNumber = selected;
         yield return new WaitForSeconds(1);
         if(MemoryController.IsLastGame()) {
+            AddScore();
             SceneManager.LoadScene("MemoryResult");
         } else {
             MemoryController.NextGame();
             SceneManager.LoadScene("MemoryStart");
         }
+    }
+
+    private void AddScore() {
+        SetConnection();
+        int score = MemoryController.CalculateScore();
+        MemoryInsertScore(score);
     }
 }

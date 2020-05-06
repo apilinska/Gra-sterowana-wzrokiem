@@ -18,7 +18,7 @@ public class Numbers
     public GameObject cell_2;
 }
  
-public class BoardController : MonoBehaviour
+public class BoardController : DbConnect
 {
     [Header("Board")]
     [Range(5, 7)]
@@ -116,6 +116,8 @@ public class BoardController : MonoBehaviour
         if(!FindUnselected()) {
             timerStop = true;
             MathController.SetTimer(Math.Round(timer, 0));
+            int score = MathController.CalculateResult();
+            MathInsertScore(score);
             SceneManager.LoadScene("MathResult");
         }
     }

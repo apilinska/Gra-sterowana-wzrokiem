@@ -5,11 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class Cell {
+public class Cell 
+{
     public int number;
     public bool selected;
 
-    public Cell(int n) {
+    public Cell(int n) 
+    {
         number = n;
         selected = true;
     }
@@ -23,7 +25,8 @@ public class Board
     public int[] row_numbers;
     public int[] col_numbers;
 
-    public Board(int board_size) {
+    public Board(int board_size) 
+    {
         size = board_size;
     }
 }

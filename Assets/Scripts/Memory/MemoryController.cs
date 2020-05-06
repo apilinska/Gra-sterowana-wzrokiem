@@ -55,4 +55,8 @@ public static class MemoryController
         goodAnswers = 0;
         currentGameNumber = 1;
     }
+
+    public static int CalculateScore() {
+        return goodAnswers * 100 / numberOfGames;
+    }
 }

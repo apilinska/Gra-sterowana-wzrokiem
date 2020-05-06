@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : DbConnect
 {
     public float speed = 2.0f;
     public float max = 90.0f;
@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.tag == "obstacle"){
+            int score = DexterityController.CalculateResult();
+            DexterityInsertScore(score);
             SceneManager.LoadScene("DexterityResult");
         } else if(col.gameObject.tag == "bonus"){
             DexterityController.CatchBonus();
