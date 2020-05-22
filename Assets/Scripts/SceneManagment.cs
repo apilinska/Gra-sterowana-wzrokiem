@@ -24,7 +24,7 @@ public class SceneManagment : MonoBehaviour
 {
 	public Buttons[] buttons;
 
-	void Start () 
+	void Start() 
 	{
 		foreach(Buttons b in buttons)
 		{

@@ -27,11 +27,11 @@ public class PlayerController : DbConnect
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if(col.gameObject.tag == "obstacle"){
+        if(col.gameObject.tag == "obstacle") {
             int score = DexterityController.CalculateResult();
             DexterityInsertScore(score);
             SceneManager.LoadScene("DexterityResult");
-        } else if(col.gameObject.tag == "bonus"){
+        } else if(col.gameObject.tag == "bonus") {
             DexterityController.CatchBonus();
         }
     }

@@ -62,6 +62,10 @@ public class DbConnect : DbCommands
 
     /* Users */
 
+    public User GetActiveUser() {
+        return activeUser;
+    }
+
     public void SetActiveUser()
     {
         SetConnection();
@@ -123,7 +127,6 @@ public class DbConnect : DbCommands
             {
                 users.Add(new User(reader));
             }
-            Debug.Log("users: " + users.Count);
             CloseConnection();
         }
         catch (Exception ex)
@@ -137,16 +140,19 @@ public class DbConnect : DbCommands
 
     public int GetLastMemoryScore() 
     {
+        SetActiveUser();
         return GetLastScoreId(memory_results);
     }
 
     public List<RankingBoard> GetMemoryRankingBoard(int limit)
     {
+        SetActiveUser();
         return GetRankingBoard(memory_results, limit);
     }
 
     public void MemoryInsertScore(int score)
     {
+        SetActiveUser();
         InsertGameScore(memory_results, score);
     }
 
@@ -154,16 +160,19 @@ public class DbConnect : DbCommands
 
     public int GetLastMathScore() 
     {
+        SetActiveUser();
         return GetLastScoreId(math_results);
     }
 
     public List<RankingBoard> GetMathRankingBoard(int limit)
     {
+        SetActiveUser();
         return GetRankingBoard(math_results, limit);
     }
 
     public void MathInsertScore(int score)
     {
+        SetActiveUser();
         InsertGameScore(math_results, score);
     }
 
@@ -171,16 +180,19 @@ public class DbConnect : DbCommands
 
     public int GetLastDexterityScore() 
     {
+        SetActiveUser();
         return GetLastScoreId(dexterity_results);
     }
 
     public List<RankingBoard> GetDexterityRankingBoard(int limit)
     {
+        SetActiveUser();
         return GetRankingBoard(dexterity_results, limit);
     }
 
     public void DexterityInsertScore(int score)
     {
+        SetActiveUser();
         InsertGameScore(dexterity_results, score);
     }
 
@@ -192,7 +204,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString += InsertGameScoreCmd(game);
+            commandString = InsertGameScoreCmd(game);
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("userId", activeUser.id);
             command.Parameters.AddWithValue("score", score);
@@ -212,7 +224,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = GetLastScoreIdCmd(math_results);
+            commandString = GetLastScoreIdCmd(game);
             command = new MySqlCommand(commandString, connection);
             scoreId = Convert.ToInt32(command.ExecuteScalar());
             CloseConnection();
@@ -232,7 +244,6 @@ public class DbConnect : DbCommands
         {
             OpenConnection();
             commandString = GetRankingBoardCmd(game);
-            Debug.Log(commandString);
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("limit", limit);
             reader = command.ExecuteReader();
@@ -253,7 +264,6 @@ public class DbConnect : DbCommands
 
     public void SaveLog(string exceptionMessage, MySqlCommand command = null) 
     {
-        Debug.Log("Exception: " + exceptionMessage);
         string sqlCommand = command != null ? command.CommandText : null;
         try
         {
@@ -269,6 +279,7 @@ public class DbConnect : DbCommands
         catch (Exception ex)
         {
             Debug.Log("Dodac do pliku: " + ex.Message);
+            Log.Save(ex.Message);
         }
     }
 }
