@@ -18,12 +18,11 @@ public class DbConnect : DbCommands
     string memory_results = "memory_results";
     string dexterity_results = "dexterity_results";
 
-    User activeUser = null;
+    //User activeUser = null;
 
     void Start()
     {
         SetConnection();
-        SetActiveUser();
     }
 
     /* Connection */
@@ -62,12 +61,56 @@ public class DbConnect : DbCommands
 
     /* Users */
 
-    public User GetActiveUser() {
-        return activeUser;
-    }
+    // public User GetActiveUser() {
+    //     return activeUser;
+    // }
 
-    public void SetActiveUser()
+    // public void SetActiveUser(User user) {
+    //     activeUser = user;
+    //     Debug.Log("Active user: " + activeUser.name);
+    // }
+
+    // public void CheckActiveUser() {
+    //     Debug.Log("CheckActiveUser");
+    //     if(activeUser == null) {
+    //         Debug.Log("user is null");
+    //         SetConnection();
+    //         commandString = GetLastSessionCmd();
+    //         command = new MySqlCommand(commandString, connection);
+    //         reader = command.ExecuteReader();
+    //         if(reader.Read())
+    //         {
+    //             activeUser = new User(reader);
+    //         }
+    //         CloseConnection();
+    //     }
+    // }
+
+    // public void SetActiveUser()
+    // {
+    //     SetConnection();
+    //     try
+    //     {
+    //         OpenConnection();
+    //         commandString = GetLastSessionCmd();
+    //         command = new MySqlCommand(commandString, connection);
+    //         reader = command.ExecuteReader();
+    //         if(reader.Read())
+    //         {
+    //             User user = new User(reader);
+    //             activeUser = user;
+    //         }
+    //         CloseConnection();
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         SaveLog(ex.Message, command);
+    //     }
+    // }
+
+    public User GetActiveUser()
     {
+        User user = null;
         SetConnection();
         try
         {
@@ -77,14 +120,15 @@ public class DbConnect : DbCommands
             reader = command.ExecuteReader();
             if(reader.Read())
             {
-                User user = new User(reader);
-                activeUser = user != null ? user : new User(1, "");
+                user = new User(reader);
             }
             CloseConnection();
+            return user;
         }
         catch (Exception ex)
         {
             SaveLog(ex.Message, command);
+            return null;
         }
     }
 
@@ -136,23 +180,108 @@ public class DbConnect : DbCommands
         return users;
     }
 
+    public bool InsertUser(string userName) 
+    {
+        SetConnection();
+        try
+        {
+            OpenConnection();
+            commandString = InsertUserCmd();
+            command = new MySqlCommand(commandString, connection);
+            command.Parameters.AddWithValue("userName", userName);
+            command.ExecuteNonQuery();
+
+            commandString = InsertNewUserSessionCmd();
+            command = new MySqlCommand(commandString, connection);
+            command.ExecuteNonQuery();
+
+            CloseConnection();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            SaveLog(ex.Message, command);
+            return false;
+        }
+    }
+
+    /* User sessions */
+
+    // public User GetLoggedUser()
+    // {
+    //     User loggedUser = null;
+    //     try
+    //     {
+    //         OpenConnection();
+    //         commandString = GetLoggedUserCmd();
+    //         command = new MySqlCommand(commandString, connection);
+    //         reader = command.ExecuteReader();
+    //         if(reader.Read())
+    //         {
+    //             loggedUser = new User(reader);
+    //         }
+    //         CloseConnection();
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         SaveLog(ex.Message, command);
+    //     }
+    //     return loggedUser;
+    // }
+
+    public bool InsertUserSession(int userId) 
+    {
+        SetConnection();
+        try
+        {
+            OpenConnection();
+            commandString = InsertUserSessionCmd();
+            command = new MySqlCommand(commandString, connection);
+            command.Parameters.AddWithValue("userId", userId);
+            command.ExecuteNonQuery();
+            CloseConnection();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            SaveLog(ex.Message, command);
+            return false;
+        }
+    }
+
+    public bool InsertNewUserSession() 
+    {
+        SetConnection();
+        try
+        {
+            OpenConnection();
+            commandString = InsertNewUserSessionCmd();
+            command = new MySqlCommand(commandString, connection);
+            command.ExecuteNonQuery();
+            CloseConnection();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            SaveLog(ex.Message, command);
+            return false;
+        }
+    }
+
     /* Memory game */
 
     public int GetLastMemoryScore() 
     {
-        SetActiveUser();
         return GetLastScoreId(memory_results);
     }
 
     public List<RankingBoard> GetMemoryRankingBoard(int limit)
     {
-        SetActiveUser();
         return GetRankingBoard(memory_results, limit);
     }
 
     public void MemoryInsertScore(int score)
     {
-        SetActiveUser();
         InsertGameScore(memory_results, score);
     }
 
@@ -160,19 +289,16 @@ public class DbConnect : DbCommands
 
     public int GetLastMathScore() 
     {
-        SetActiveUser();
         return GetLastScoreId(math_results);
     }
 
     public List<RankingBoard> GetMathRankingBoard(int limit)
     {
-        SetActiveUser();
         return GetRankingBoard(math_results, limit);
     }
 
     public void MathInsertScore(int score)
     {
-        SetActiveUser();
         InsertGameScore(math_results, score);
     }
 
@@ -180,19 +306,16 @@ public class DbConnect : DbCommands
 
     public int GetLastDexterityScore() 
     {
-        SetActiveUser();
         return GetLastScoreId(dexterity_results);
     }
 
     public List<RankingBoard> GetDexterityRankingBoard(int limit)
     {
-        SetActiveUser();
         return GetRankingBoard(dexterity_results, limit);
     }
 
     public void DexterityInsertScore(int score)
     {
-        SetActiveUser();
         InsertGameScore(dexterity_results, score);
     }
 
@@ -206,7 +329,6 @@ public class DbConnect : DbCommands
             OpenConnection();
             commandString = InsertGameScoreCmd(game);
             command = new MySqlCommand(commandString, connection);
-            command.Parameters.AddWithValue("userId", activeUser.id);
             command.Parameters.AddWithValue("score", score);
             command.ExecuteNonQuery();
             CloseConnection();
@@ -272,7 +394,7 @@ public class DbConnect : DbCommands
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("exception", exceptionMessage);
             command.Parameters.AddWithValue("command", sqlCommand);
-            command.Parameters.AddWithValue("userId", activeUser.id);
+            //command.Parameters.AddWithValue("userId", activeUser != null ? activeUser.id : 1);
             command.ExecuteNonQuery();
             CloseConnection();
         }

@@ -57,6 +57,10 @@
      <Compile Include="Assets\Scripts\Dexterity\ObstacleController.cs" />
      <Compile Include="Assets\Scripts\Dexterity\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Dexterity\SpawnObstaclesController.cs" />
+     <Compile Include="Assets\Scripts\Enums.cs" />
+     <Compile Include="Assets\Scripts\GUI\GUIController.cs" />
+     <Compile Include="Assets\Scripts\Keyboard\KeyboardController.cs" />
+     <Compile Include="Assets\Scripts\Keyboard\KeyboardSelect.cs" />
      <Compile Include="Assets\Scripts\Log.cs" />
      <Compile Include="Assets\Scripts\Math\BoardController.cs" />
      <Compile Include="Assets\Scripts\Math\BoardGenerator.cs" />
@@ -66,10 +70,11 @@
      <Compile Include="Assets\Scripts\Memory\MemoryController.cs" />
      <Compile Include="Assets\Scripts\Memory\RandomizeNumber.cs" />
      <Compile Include="Assets\Scripts\Memory\SelectNumber.cs" />
-     <Compile Include="Assets\Scripts\RankingBoardController.cs" />
-     <Compile Include="Assets\Scripts\RankingValues.cs" />
+     <Compile Include="Assets\Scripts\Ranking board\RankingBoardController.cs" />
+     <Compile Include="Assets\Scripts\Ranking board\RankingValues.cs" />
      <Compile Include="Assets\Scripts\SceneManagment.cs" />
      <Compile Include="Assets\Scripts\ShowResult.cs" />
+     <Compile Include="Assets\Scripts\Users\UserController.cs" />
      <Compile Include="Assets\Scripts\Vision\NumberMovement.cs" />
      <Compile Include="Assets\Scripts\Vision\SpawnNumbers.cs" />
  <Reference Include="Unity.Timeline.Editor">

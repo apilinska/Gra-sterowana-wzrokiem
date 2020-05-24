@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Game 
-{
-	Memory,
-    Dexterity,
-    Attention,
-    Vision,
-    Math
-}
-
 public class ShowResult : MonoBehaviour
 {
     public Game Game;
@@ -22,7 +13,11 @@ public class ShowResult : MonoBehaviour
         SetResult();
     }
 
-    string GetResult() {
+    private void SetResult() {  
+        Result.text = GetResult();;
+    }
+
+    private string GetResult() {
         switch(Game) {
             case Game.Memory:
                 return MemoryController.GetResult();
@@ -36,9 +31,5 @@ public class ShowResult : MonoBehaviour
             default:
                 return "";
         }
-    }
-
-    void SetResult() {
-        Result.text = GetResult();;
-    }
+    }  
 }
