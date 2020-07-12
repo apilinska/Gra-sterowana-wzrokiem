@@ -358,7 +358,7 @@ public class DbConnect : DbCommands
         return scoreId;
     }
 
-     public List<RankingBoard> GetRankingBoard(string game, int limit)
+    public List<RankingBoard> GetRankingBoard(string game, int limit)
     {
         SetConnection();
         List<RankingBoard> rankingBoard = new List<RankingBoard>();

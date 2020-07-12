@@ -12,6 +12,8 @@ TagManager:
   - button_box
   - empty_box
   - number_box
+  - home_button
+  - user
   layers:
   - Default
   - TransparentFX
