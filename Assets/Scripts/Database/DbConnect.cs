@@ -53,60 +53,13 @@ public class DbConnect : DbCommands
         MySqlConnectionStringBuilder connectionBuilder = new MySqlConnectionStringBuilder();
         connectionBuilder.Server = "127.0.0.1";
         connectionBuilder.UserID = "root";
-        connectionBuilder.Password = "agata";
+        connectionBuilder.Password = "";
         connectionBuilder.Database = databaseName;
 
         connectionString = connectionBuilder.ToString();
     }
 
     /* Users */
-
-    // public User GetActiveUser() {
-    //     return activeUser;
-    // }
-
-    // public void SetActiveUser(User user) {
-    //     activeUser = user;
-    //     Debug.Log("Active user: " + activeUser.name);
-    // }
-
-    // public void CheckActiveUser() {
-    //     Debug.Log("CheckActiveUser");
-    //     if(activeUser == null) {
-    //         Debug.Log("user is null");
-    //         SetConnection();
-    //         commandString = GetLastSessionCmd();
-    //         command = new MySqlCommand(commandString, connection);
-    //         reader = command.ExecuteReader();
-    //         if(reader.Read())
-    //         {
-    //             activeUser = new User(reader);
-    //         }
-    //         CloseConnection();
-    //     }
-    // }
-
-    // public void SetActiveUser()
-    // {
-    //     SetConnection();
-    //     try
-    //     {
-    //         OpenConnection();
-    //         commandString = GetLastSessionCmd();
-    //         command = new MySqlCommand(commandString, connection);
-    //         reader = command.ExecuteReader();
-    //         if(reader.Read())
-    //         {
-    //             User user = new User(reader);
-    //             activeUser = user;
-    //         }
-    //         CloseConnection();
-    //     }
-    //     catch (Exception ex)
-    //     {
-    //         SaveLog(ex.Message, command);
-    //     }
-    // }
 
     public User GetActiveUser()
     {
@@ -165,7 +118,6 @@ public class DbConnect : DbCommands
             commandString = GetUsersCmd();
             command = new MySqlCommand(commandString, connection);
             reader = command.ExecuteReader();
-            //Debug.Log(reader.GetName(0) + " : " + reader.GetName(1));
             
             while(reader.Read())
             {
@@ -206,28 +158,6 @@ public class DbConnect : DbCommands
     }
 
     /* User sessions */
-
-    // public User GetLoggedUser()
-    // {
-    //     User loggedUser = null;
-    //     try
-    //     {
-    //         OpenConnection();
-    //         commandString = GetLoggedUserCmd();
-    //         command = new MySqlCommand(commandString, connection);
-    //         reader = command.ExecuteReader();
-    //         if(reader.Read())
-    //         {
-    //             loggedUser = new User(reader);
-    //         }
-    //         CloseConnection();
-    //     }
-    //     catch (Exception ex)
-    //     {
-    //         SaveLog(ex.Message, command);
-    //     }
-    //     return loggedUser;
-    // }
 
     public bool InsertUserSession(int userId) 
     {
@@ -394,7 +324,6 @@ public class DbConnect : DbCommands
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("exception", exceptionMessage);
             command.Parameters.AddWithValue("command", sqlCommand);
-            //command.Parameters.AddWithValue("userId", activeUser != null ? activeUser.id : 1);
             command.ExecuteNonQuery();
             CloseConnection();
         }
