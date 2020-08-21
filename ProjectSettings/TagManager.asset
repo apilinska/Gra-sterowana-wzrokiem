@@ -14,6 +14,8 @@ TagManager:
   - number_box
   - home_button
   - user
+  - exit
+  - logout
   layers:
   - Default
   - TransparentFX

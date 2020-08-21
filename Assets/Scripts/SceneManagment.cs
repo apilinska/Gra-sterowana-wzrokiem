@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SceneManagment : MonoBehaviour 
 {
@@ -63,6 +64,26 @@ public class SceneManagment : MonoBehaviour
 				break;
 		}
 	}
+
+	public void MouseEnter(string scene) {
+        Debug.Log("mouse enter on scene " + scene);
+        EyeCursor.On();
+        StartCoroutine(loadButton(scene));
+    }
+
+    public void MouseExit(string scene) {
+        Debug.Log("mouse exit on scene " + scene);
+        EyeCursor.Off();
+        StopAllCoroutines();
+    }
+
+	private IEnumerator loadButton(string scene) {
+        yield return new WaitForSeconds(EyeCursor.Time());
+		if(EyeCursor.IsFocused()){
+			EyeCursor.Off();
+			SceneManager.LoadScene(scene);
+		}
+    }
 }
 
 [Serializable]

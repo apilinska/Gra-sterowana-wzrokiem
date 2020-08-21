@@ -45,6 +45,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Cursor\CursorController.cs" />
+     <Compile Include="Assets\Scripts\Cursor\EyeCursor.cs" />
      <Compile Include="Assets\Scripts\Database\DbCommands.cs" />
      <Compile Include="Assets\Scripts\Database\DbConnect.cs" />
      <Compile Include="Assets\Scripts\Database\DbModels.cs" />
