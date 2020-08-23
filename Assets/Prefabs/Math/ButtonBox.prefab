@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 6139379909585356488}
   - component: {fileID: 2610264343738088146}
   - component: {fileID: 8803281157183621668}
+  - component: {fileID: 883543135154960287}
   m_Layer: 5
   m_Name: ButtonBox
   m_TagString: button_box
@@ -207,6 +208,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box_selected: {fileID: 21300000, guid: dbbbf4f964019474f9c19337d038de84, type: 3}
   box: {fileID: 21300000, guid: 2f6146ae301ce6249b0b0e6f57a867e9, type: 3}
+--- !u!114 &883543135154960287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139379909585356494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8803281157183621668}
+          m_MethodName: MouseEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8803281157183621668}
+          m_MethodName: MouseExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6927967142442045904
 GameObject:
   m_ObjectHideFlags: 0

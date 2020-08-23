@@ -37,10 +37,6 @@ public class SceneManagment : MonoBehaviour
 				SceneManager.LoadScene("DexterityStartMenu");
 				break;
 
-			case ButtonName.VisionStartMenu:
-				SceneManager.LoadScene("VisionStartMenu");
-				break;
-
             case ButtonName.StartMemory:
 				MemoryController.ClearResult();
 				SceneManager.LoadScene("MemoryStart");
@@ -66,13 +62,11 @@ public class SceneManagment : MonoBehaviour
 	}
 
 	public void MouseEnter(string scene) {
-        Debug.Log("mouse enter on scene " + scene);
         EyeCursor.On();
         StartCoroutine(loadButton(scene));
     }
 
-    public void MouseExit(string scene) {
-        Debug.Log("mouse exit on scene " + scene);
+    public void MouseExit() {
         EyeCursor.Off();
         StopAllCoroutines();
     }
@@ -81,6 +75,12 @@ public class SceneManagment : MonoBehaviour
         yield return new WaitForSeconds(EyeCursor.Time());
 		if(EyeCursor.IsFocused()){
 			EyeCursor.Off();
+			if(scene == "MemoryStart") {
+				MemoryController.ClearResult();
+			} 
+			else if(scene == "DexterityGame") {
+				MemoryController.ClearResult();
+			}
 			SceneManager.LoadScene(scene);
 		}
     }

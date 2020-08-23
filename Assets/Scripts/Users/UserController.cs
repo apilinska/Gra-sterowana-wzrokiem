@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,16 +6,18 @@ using UnityEngine.UI;
 
 public class UserController : DbConnect
 {
-    public GameObject userPrefab;
-    public GameObject newUserPrefab;
+    public GameObject userPrefab = null;
+    public GameObject newUserPrefab = null;
 
     private string value = "";
     private List<User> users = new List<User>();
 
     void Start()
     {
-        GetAllUsers();
-        SetUsersData();
+        if(userPrefab && newUserPrefab) {
+            GetAllUsers();
+            SetUsersData();
+        }
     }
 
     private void GetAllUsers() {
@@ -50,7 +53,35 @@ public class UserController : DbConnect
 
     private void SelectUser(User user) {
         InsertUserSession(user.id);
-        //SetActiveUser(user);
         SceneManager.LoadScene("Menu");
+    }
+
+    public void MouseEnter(string userName = null) {
+        EyeCursor.On();
+        StartCoroutine(loadButton(userName));
+    }
+
+    public void MouseExit() {
+        EyeCursor.Off();
+        StopAllCoroutines();
+    }
+
+	private IEnumerator loadButton(string userName) {
+        yield return new WaitForSeconds(EyeCursor.Time());
+		if(EyeCursor.IsFocused()){
+			EyeCursor.Off();
+            if(userName != null) 
+            {
+                User selectedUser = users.Find(x => x.name.ToLower() == userName.ToLower());
+                if(selectedUser != null) {
+                    InsertUserSession(selectedUser.id);
+                    SceneManager.LoadScene("Menu");
+                }
+            }
+            else 
+            {
+                AddUser();
+            }
+		}
     }
 }

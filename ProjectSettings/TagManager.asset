@@ -16,6 +16,9 @@ TagManager:
   - user
   - exit
   - logout
+  - enter
+  - clear
+  - delete
   layers:
   - Default
   - TransparentFX

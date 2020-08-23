@@ -40,17 +40,21 @@ public class BoardController : DbConnect
 
     void Update()
     {
-        if(!timerStop) {
+        if(!timerStop) 
+        {
             timer += Time.deltaTime;
         }
     }
 
-    void Initialize() {
+    void Initialize()
+     {
         MathController.ClearNumberOfMoves();
         board = MathController.GetBoard_5x5_2();
 
-        for(int i = 0; i < board_rows.Length; i++) {
-            for(int j = 0; j < board_rows[i].cols.Length; j++) {
+        for(int i = 0; i < board_rows.Length; i++) 
+        {
+            for(int j = 0; j < board_rows[i].cols.Length; j++) 
+            {
                 int num = board.numbers[i,j].number;
                 GameObject obj = board_rows[i].cols[j];
                 ButtonBoxController(obj).SetNumberAndCoordinates(num,i,j);
@@ -60,25 +64,30 @@ public class BoardController : DbConnect
         SetRows(board.row_numbers);
     }
 
-    void SetRows(int[] numbers) {
+    void SetRows(int[] numbers) 
+    {
         row_selected = new bool[number_rows.Length];
-        for(int i = 0; i < number_rows.Length; i++) {
+        for(int i = 0; i < number_rows.Length; i++) 
+        {
             int num = numbers[i];
             row_selected[i] = false;
             SetNumberText(number_rows[i], num);
         }
     }
 
-    void SetColumns(int[] numbers) {
+    void SetColumns(int[] numbers) 
+    {
         col_selected = new bool[number_cols.Length];
-        for(int j = 0; j < number_cols.Length; j++) {
+        for(int j = 0; j < number_cols.Length; j++) 
+        {
             int num = numbers[j];
             col_selected[j] = false;
             SetNumberText(number_cols[j], num);
         }
     }
 
-    void SetNumberText(Numbers numbers, int number) {
+    void SetNumberText(Numbers numbers, int number) 
+    {
         GameObject cell1 = numbers.cell_1;
         NumberBoxController(cell1).SetNumber(number);
 
@@ -86,34 +95,43 @@ public class BoardController : DbConnect
         NumberBoxController(cell2).SetNumber(number);
     }
 
-    int SumRow(int i) {
+    int SumRow(int i) 
+    {
         int sum = 0;
-        for(int j=0; j < board.numbers.GetLength(1); j++) {
+        for(int j=0; j < board.numbers.GetLength(1); j++) 
+        {
             sum += (board.numbers[i,j].selected ? board.numbers[i,j].number : 0);
         }
         return sum;
     }
 
-    int SumColumn(int j) {
+    int SumColumn(int j) 
+    {
         int sum = 0;
-        for(int i=0; i < board.numbers.GetLength(0); i++) {
+        for(int i=0; i < board.numbers.GetLength(0); i++) 
+        {
             sum += (board.numbers[i,j].selected ? board.numbers[i,j].number : 0);
         }
         return sum;
     }
 
-    bool FindUnselected() {
-        foreach(bool selected in row_selected) {
+    bool FindUnselected() 
+    {
+        foreach(bool selected in row_selected) 
+        {
             if(!selected) return true;
         }
-        foreach(bool selected in col_selected) {
+        foreach(bool selected in col_selected) 
+        {
             if(!selected) return true;
         }
         return false;
     }
 
-    void Calculate() {
-        if(!FindUnselected()) {
+    void Calculate() 
+    {
+        if(!FindUnselected()) 
+        {
             timerStop = true;
             MathController.SetTimer(Math.Round(timer, 0));
             int score = MathController.CalculateResult();
@@ -122,7 +140,8 @@ public class BoardController : DbConnect
         }
     }
 
-    public void ChangeState(int i, int j) {
+    public void ChangeState(int i, int j) 
+    {
         Cell cell = board.numbers[i,j];
         cell.selected = !cell.selected;
         int row_sum = SumRow(i);
@@ -134,7 +153,8 @@ public class BoardController : DbConnect
         }
     }
 
-    bool ChangeStateOfRow(int i, int sum) {
+    bool ChangeStateOfRow(int i, int sum) 
+    {
         Numbers rows = number_rows[i];
         bool changedStatusCell1;
         bool changedStatusCell2;
@@ -145,14 +165,16 @@ public class BoardController : DbConnect
         GameObject row2 = rows.cell_2;
         changedStatusCell2 = NumberBoxController(row2).ChangeState(sum);
 
-        if(changedStatusCell1 || changedStatusCell2) {
+        if(changedStatusCell1 || changedStatusCell2) 
+        {
             row_selected[i] = !row_selected[i];
             return true;
         }
         else return false;
     }
 
-    bool ChangeStateOfColumn(int j, int sum) {
+    bool ChangeStateOfColumn(int j, int sum) 
+    {
         Numbers cols = number_cols[j];
         bool changedStatusCell1;
         bool changedStatusCell2;
@@ -163,18 +185,44 @@ public class BoardController : DbConnect
         GameObject col2 = cols.cell_2;
         changedStatusCell2 = NumberBoxController(col2).ChangeState(sum);
 
-        if(changedStatusCell1 || changedStatusCell2) {
+        if(changedStatusCell1 || changedStatusCell2) 
+        {
             col_selected[j] = !col_selected[j];
             return true;
         }
         else return false;
     }
 
-    ButtonBoxController ButtonBoxController(GameObject obj) {
+    ButtonBoxController ButtonBoxController(GameObject obj) 
+    {
         return obj.GetComponent<ButtonBoxController>();
     }
 
-    NumberBoxController NumberBoxController(GameObject obj) {
+    NumberBoxController NumberBoxController(GameObject obj) 
+    {
         return obj.GetComponent<NumberBoxController>();
+    }
+
+    public void MouseEnter(int i, int j) 
+    {
+        EyeCursor.On();
+        StartCoroutine(loadButton(i, j));
+    }
+
+    public void MouseExit() 
+    {
+        EyeCursor.Off();
+        StopAllCoroutines();
+    }
+
+	private IEnumerator loadButton(int i, int j) 
+    {
+        yield return new WaitForSeconds(EyeCursor.Time());
+		if(EyeCursor.IsFocused())
+        {
+			EyeCursor.Off();
+            GameObject obj = board_rows[i].cols[j];
+            ButtonBoxController(obj).ChangeState();
+		}
     }
 }

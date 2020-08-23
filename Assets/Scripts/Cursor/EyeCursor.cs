@@ -46,10 +46,6 @@ public class EyeCursor : MonoBehaviour
         return focusTime;
     }
 
-    public static void SetTexture(Texture2D texture) {
-        Cursor.SetCursor(texture, new Vector2(0,0), CursorMode.Auto);
-    }
-
     private bool isPointerVisible() {
         return cursor_focus.gameObject.activeSelf;
     }

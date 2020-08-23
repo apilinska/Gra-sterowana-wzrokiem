@@ -25,4 +25,25 @@ public class GUIController : DbConnect
             activeUser.text = user.name.ToUpper();
         }
     }
+
+    public void MouseEnter() 
+    {
+        EyeCursor.On();
+        StartCoroutine(loadButton());
+    }
+
+    public void MouseExit() 
+    {
+        EyeCursor.Off();
+        StopAllCoroutines();
+    }
+
+    private IEnumerator loadButton() 
+    {
+        yield return new WaitForSeconds(EyeCursor.Time());
+        if(EyeCursor.IsFocused()) {
+            EyeCursor.Off();
+            SceneManager.LoadScene("Menu");
+        }
+    }
 }

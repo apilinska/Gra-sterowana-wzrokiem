@@ -32,59 +32,122 @@ public class KeyboardController : DbConnect
         }
     }
 
-    private void SetText() {
-        input.text = value;
+    private void SetText() 
+    {
+        input.text = this.value;
     }
 
-    private void GetUsersFromDatabase() {
+    private void GetUsersFromDatabase() 
+    {
         users = GetUsers();
     }
 
-    private void Clear() {
-        value = "";
+    private bool dialogIsHidden() 
+    {
+        return !dialog.gameObject.activeSelf;
+    }
+
+    private void Clear() 
+    {
+        this.value = "";
         SetText();
     }
 
-    private void Delete() {
-        if(value.Length > 0) {
-            value = value.Substring(0,value.Length - 1);
+    private void Delete() 
+    {
+        if(this.value.Length > 0) {
+            this.value = this.value.Substring(0, this.value.Length - 1);
             SetText();
         }
     }
-    private IEnumerator ShowDialog() {
+
+    public void MouseEnter(string input, KeyType type) 
+    {
+        if(dialogIsHidden()) {
+            EyeCursor.On();
+            StartCoroutine(loadButton(input, type));
+        }
+    }
+
+    public void MouseExit() 
+    {
+        if(dialogIsHidden()) 
+        {
+            EyeCursor.Off();
+            StopAllCoroutines();
+        }
+    }
+
+    private IEnumerator ShowDialog() 
+    {
         dialog.GetComponentInChildren<Text>().text = "Istnieje już użytkownik o podanej nazwie";
         dialog.SetActive(true);
         yield return new WaitForSeconds(dialogCloseTimer);
         dialog.SetActive(false);
     }
 
-    private bool ValidateNewUser(string value) {
-        if(users != null && users.Count > 0) {
-            return (users.Find(x => x.name.ToLower() == value) == null);
+    private bool ValidateNewUser(string userName) 
+    {
+        if(users != null && users.Count > 0) 
+        {
+            return (users.Find(x => x.name.ToLower() == userName) == null);
         } else {
             return true;
         }
     }
 
-    private void SelectNumber(string keyboardInput) {
+    private void SelectNumber(string keyboardInput) 
+    {
         string newValue = this.value + keyboardInput;
-        if(newValue.Length <= 20) {
-            value = newValue;
+        if(newValue.Length <= 20) 
+        {
+            this.value = newValue;
             SetText();
         }
     }
 
     private void Submit() {
-        if(value != null && value.Length > 0) {
-            string userValue = value.ToLower();
-            if(ValidateNewUser(userValue)) {
+        if(this.value != null && this.value.Length > 0) 
+        {
+            string userValue = this.value.ToLower();
+            if(ValidateNewUser(userValue)) 
+            {
                 bool result = InsertUser(userValue);
                 if(result) {
                     SceneManager.LoadScene("Menu");
                 }
-            } else {
+            } 
+            else 
+            {
                 StartCoroutine(ShowDialog());
             }
         }
+    }
+    
+	private IEnumerator loadButton(string input, KeyType type) 
+    {
+        yield return new WaitForSeconds(EyeCursor.Time());
+		if(EyeCursor.IsFocused())
+        {
+			EyeCursor.Off();
+            switch(type) 
+            {
+                case KeyType.Char:
+                    SelectNumber(input);
+                    break;
+
+                case KeyType.Enter:
+                    Submit();
+                    break;
+
+                case KeyType.Delete:
+                    Delete();
+                    break;
+
+                case KeyType.Clear:
+                    Clear();
+                    break;
+            }
+		}
     }
 }

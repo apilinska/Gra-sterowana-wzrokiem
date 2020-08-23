@@ -9,8 +9,6 @@ public class MenuController : DbConnect
     public Button Exit;
     public Text User;
 
-    private float timeLeft;
-
     void Start()
     {
         Logout.onClick.AddListener(() => UserLogout());
@@ -26,7 +24,6 @@ public class MenuController : DbConnect
     private void ExitGame() 
     {
         Application.Quit();
-        Debug.Log("Gra została zamknięta");
     }
 
     private void SetUser() 
@@ -43,7 +40,7 @@ public class MenuController : DbConnect
         StartCoroutine(loadButton(button));
     }
 
-    public void MouseExit(GameObject button) 
+    public void MouseExit() 
     {
         EyeCursor.Off();
         StopAllCoroutines();
@@ -51,7 +48,6 @@ public class MenuController : DbConnect
 
     private IEnumerator loadButton(GameObject button) 
     {
-        timeLeft = EyeCursor.Time();
         yield return new WaitForSeconds(EyeCursor.Time());
         if(EyeCursor.IsFocused()) {
             EyeCursor.Off();

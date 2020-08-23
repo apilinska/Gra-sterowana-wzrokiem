@@ -250,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor_bar: {fileID: 8500676942095518483}
   cursor_focus: {fileID: 8500676940999066319}
+  animated_bar: {fileID: 8500676942095518481}
 --- !u!1 &8500676940999066317
 GameObject:
   m_ObjectHideFlags: 0

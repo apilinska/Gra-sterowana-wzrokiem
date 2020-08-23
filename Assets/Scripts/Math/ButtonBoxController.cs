@@ -45,7 +45,7 @@ public class ButtonBoxController : MonoBehaviour
         else return 0;
     }
 
-    void ChangeState() {
+    public void ChangeState() {
         MathController.NewMove();
         if(selected) UnselectButton();
         else SelectButton();
@@ -60,5 +60,23 @@ public class ButtonBoxController : MonoBehaviour
     void UnselectButton() {
         selected = false;
         GetComponent<Image>().sprite = box;
+    }
+
+    public void MouseEnter() {
+        var boardController = GetController();
+        if(boardController != null) {
+            boardController.MouseEnter(this.i, this.j);
+        }
+    }
+
+    public void MouseExit() {
+        var boardController = GetController();
+        if(boardController != null) {
+            boardController.MouseExit();
+        }
+    }
+
+    private BoardController GetController() {
+        return GetComponentInParent<BoardController>();
     }
 }

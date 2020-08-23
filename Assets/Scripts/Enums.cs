@@ -22,3 +22,11 @@ public enum ButtonName
 	StartMath,
 	MathStartMenu
 }
+
+public enum KeyType
+{
+	Char,
+	Clear,
+	Delete,
+	Enter
+}
