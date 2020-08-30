@@ -1,3 +1,23 @@
+public enum GameMode 
+{
+    Simulation,
+    Device
+}
+
+public enum State 
+{
+    ROW,
+    COLUMN
+}
+
+public enum KeyType
+{
+	Char,
+	Clear,
+	Delete,
+	Enter
+}
+
 public enum Game 
 {
 	Memory,
@@ -23,10 +43,3 @@ public enum ButtonName
 	MathStartMenu
 }
 
-public enum KeyType
-{
-	Char,
-	Clear,
-	Delete,
-	Enter
-}

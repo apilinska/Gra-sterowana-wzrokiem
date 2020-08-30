@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class BoardRows
@@ -38,6 +36,28 @@ public class BoardController : DbConnect
         Initialize();
     }
 
+    ButtonBoxController ButtonBoxController(GameObject obj) 
+    {
+        return obj.GetComponent<ButtonBoxController>();
+    }
+
+    NumberBoxController NumberBoxController(GameObject obj) 
+    {
+        return obj.GetComponent<NumberBoxController>();
+    }
+
+    public void MouseEnter(int i, int j) 
+    {
+        EyeCursor.On();
+        StartCoroutine(loadButton(i, j));
+    }
+
+    public void MouseExit() 
+    {
+        EyeCursor.Off();
+        StopAllCoroutines();
+    }
+
     void Update()
     {
         if(!timerStop) 
@@ -46,23 +66,18 @@ public class BoardController : DbConnect
         }
     }
 
-    void Initialize()
-     {
-        MathController.ClearNumberOfMoves();
-        board = MathController.GetBoard_5x5_2();
-
-        for(int i = 0; i < board_rows.Length; i++) 
+	private IEnumerator loadButton(int i, int j) 
+    {
+        yield return new WaitForSeconds(EyeCursor.Time());
+		if(EyeCursor.IsFocused())
         {
-            for(int j = 0; j < board_rows[i].cols.Length; j++) 
-            {
-                int num = board.numbers[i,j].number;
-                GameObject obj = board_rows[i].cols[j];
-                ButtonBoxController(obj).SetNumberAndCoordinates(num,i,j);
-            }
-        }
-        SetColumns(board.col_numbers);
-        SetRows(board.row_numbers);
+			EyeCursor.Off();
+            GameObject obj = board_rows[i].cols[j];
+            ButtonBoxController(obj).ChangeState();
+		}
     }
+
+    
 
     void SetRows(int[] numbers) 
     {
@@ -148,9 +163,28 @@ public class BoardController : DbConnect
         int col_sum = SumColumn(j);
         bool rowChangeState = ChangeStateOfRow(i, row_sum);
         bool colChangeState = ChangeStateOfColumn(j, col_sum);
-        if(rowChangeState || colChangeState) {
+        if(rowChangeState || colChangeState) 
+        {
             Calculate();
         }
+    }
+
+    void Initialize()
+    {
+        MathController.ClearNumberOfMoves();
+        board = MathController.GetBoard_5x5_2();
+
+        for(int i = 0; i < board_rows.Length; i++) 
+        {
+            for(int j = 0; j < board_rows[i].cols.Length; j++) 
+            {
+                int num = board.numbers[i,j].number;
+                GameObject obj = board_rows[i].cols[j];
+                ButtonBoxController(obj).SetNumberAndCoordinates(num,i,j);
+            }
+        }
+        SetColumns(board.col_numbers);
+        SetRows(board.row_numbers);
     }
 
     bool ChangeStateOfRow(int i, int sum) 
@@ -191,38 +225,5 @@ public class BoardController : DbConnect
             return true;
         }
         else return false;
-    }
-
-    ButtonBoxController ButtonBoxController(GameObject obj) 
-    {
-        return obj.GetComponent<ButtonBoxController>();
-    }
-
-    NumberBoxController NumberBoxController(GameObject obj) 
-    {
-        return obj.GetComponent<NumberBoxController>();
-    }
-
-    public void MouseEnter(int i, int j) 
-    {
-        EyeCursor.On();
-        StartCoroutine(loadButton(i, j));
-    }
-
-    public void MouseExit() 
-    {
-        EyeCursor.Off();
-        StopAllCoroutines();
-    }
-
-	private IEnumerator loadButton(int i, int j) 
-    {
-        yield return new WaitForSeconds(EyeCursor.Time());
-		if(EyeCursor.IsFocused())
-        {
-			EyeCursor.Off();
-            GameObject obj = board_rows[i].cols[j];
-            ButtonBoxController(obj).ChangeState();
-		}
     }
 }

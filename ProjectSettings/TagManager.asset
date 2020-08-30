@@ -19,6 +19,7 @@ TagManager:
   - enter
   - clear
   - delete
+  - cursor
   layers:
   - Default
   - TransparentFX

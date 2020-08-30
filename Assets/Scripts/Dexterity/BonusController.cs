@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class BonusController : MonoBehaviour
 {
@@ -10,8 +7,10 @@ public class BonusController : MonoBehaviour
         GetComponent<Rigidbody2D>().gravityScale = 5;
     }
 
-    void OnCollisionEnter2D(Collision2D col) {
-        if(col.gameObject.tag == "floor" || col.gameObject.tag == "player") {
+    void OnCollisionEnter2D(Collision2D col) 
+    {
+        if(col.gameObject.tag == "floor" || col.gameObject.tag == "player") 
+        {
             Destroy(gameObject);
         }
     }

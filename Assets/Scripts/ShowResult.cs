@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ShowResult : MonoBehaviour
@@ -13,12 +11,15 @@ public class ShowResult : MonoBehaviour
         SetResult();
     }
 
-    private void SetResult() {  
+    private void SetResult() 
+    {  
         Result.text = GetResult();;
     }
 
-    private string GetResult() {
-        switch(Game) {
+    private string GetResult() 
+    {
+        switch(Game) 
+        {
             case Game.Memory:
                 return MemoryController.GetResult();
 

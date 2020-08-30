@@ -11,52 +11,65 @@ public static class MemoryController
     private static int goodAnswers = 0;
     private static int numberOfGames = 3;
 
-    public static void NextGame() {
+    public static void NextGame() 
+    {
         currentGameNumber++;  
     }
 
-    public static int GetGameNumber() {
+    public static int GetGameNumber() 
+    {
         return currentGameNumber;
     }
 
-    public static bool IsLastGame() {
+    public static bool IsLastGame() 
+    {
         return currentGameNumber == numberOfGames;
     }
 
-    public static string RandomizeNumber {
-        get {
-            return randomizedNumber;
-        }
-        set {
-            randomizedNumber = value;
-        }
-    }
-
-    public static string SelectNumber {
-        get {
-            return selectedNumber;
-        }
-        set {
-            selectedNumber = value;
-            CompareText();
-        }
-    }
-
-    public static void CompareText() {
+    public static void CompareText() 
+    {
         Boolean result = String.Compare(randomizedNumber, selectedNumber) == 0;
         if(result) goodAnswers++;   
     } 
 
-    public static string GetResult() {
+    public static string GetResult() 
+    {
         return goodAnswers + " / " + numberOfGames;
     } 
 
-    public static void ClearResult() {
+    public static void ClearResult() 
+    {
         goodAnswers = 0;
         currentGameNumber = 1;
     }
 
-    public static int CalculateScore() {
+    public static int CalculateScore() 
+    {
         return goodAnswers * 100 / numberOfGames;
+    }
+
+    public static string RandomizeNumber 
+    {
+        get 
+        {
+            return randomizedNumber;
+        }
+        set 
+        {
+            randomizedNumber = value;
+        }
+    }
+
+    public static string SelectNumber 
+    {
+        get 
+        {
+            return selectedNumber;
+        }
+        set 
+        {
+            selectedNumber = value;
+            CompareText();
+        }
     }
 }

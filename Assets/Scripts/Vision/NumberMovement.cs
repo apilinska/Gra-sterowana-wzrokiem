@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NumberMovement : MonoBehaviour
 {
@@ -23,7 +21,8 @@ public class NumberMovement : MonoBehaviour
         parent = number.transform.parent.gameObject;
 
         RectTransform panelRectTransform = parent.GetComponent<RectTransform>();
-        if(panelRectTransform) {
+        if(panelRectTransform) 
+        {
             xMin = panelRectTransform.rect.xMin;
             xMax = panelRectTransform.rect.xMax;
             yMin = panelRectTransform.rect.yMin;
@@ -34,27 +33,32 @@ public class NumberMovement : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= timerStop) {
+        if(timer >= timerStop) 
+        {
             TransformPosition();
             timer = 0f;
         }
     }
 
-    private void TransformPosition() {
+    private void TransformPosition() 
+    {
         Vector3 vector = new Vector3();
-        do {
+        do 
+        {
             vector = GetRandomVector();
-        } while(OutOfBoundaries(vector));
+        } 
+        while(OutOfBoundaries(vector));
         number.transform.localPosition += vector;
     }
 
-    private bool OutOfBoundaries(Vector3 vector) {
+    private bool OutOfBoundaries(Vector3 vector) 
+    {
         var position = number.transform.localPosition + vector;
-        return ( position.x < xMin || position.x > xMax || 
-            position.y < yMin || position.y > yMax );
+        return (position.x < xMin || position.x > xMax || position.y < yMin || position.y > yMax);
     }
 
-    private Vector3 GetRandomVector() {
+    private Vector3 GetRandomVector() 
+    {
         Vector3 vector = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
         vector.Normalize();
         vector *= step;

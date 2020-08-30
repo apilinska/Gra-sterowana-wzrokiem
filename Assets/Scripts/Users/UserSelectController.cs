@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UserSelectController : MonoBehaviour
@@ -9,7 +7,8 @@ public class UserSelectController : MonoBehaviour
     {
         string name = gameObject.GetComponentInChildren<Text>().text;
         var userController = gameObject.GetComponentInParent<UserController>();
-        if(userController != null) {
+        if(userController != null) 
+        {
             userController.MouseEnter(name);
         }
     }
@@ -17,7 +16,8 @@ public class UserSelectController : MonoBehaviour
     public void OnMouseExit()
     {
         var userController = gameObject.GetComponentInParent<UserController>();
-        if(userController != null) {
+        if(userController != null) 
+        {
             userController.MouseExit();
         }
     }

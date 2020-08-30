@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SpawnNumbers : MonoBehaviour
@@ -16,18 +14,20 @@ public class SpawnNumbers : MonoBehaviour
     void Start()
     {
         RectTransform panelRectTransform = this.GetComponent<RectTransform>();
-        if(panelRectTransform) {
+        if(panelRectTransform) 
+        {
             xMin = panelRectTransform.rect.xMin;
             xMax = panelRectTransform.rect.xMax;
             yMin = panelRectTransform.rect.yMin;
             yMax = panelRectTransform.rect.yMax;
         }
-
         SpawnObjects();
     }
 
-    private void SpawnObjects() {
-        for(int i=0; i < count; i++) {
+    private void SpawnObjects() 
+    {
+        for(int i = 0; i < count; i++) 
+        {
             GameObject newNumber = Instantiate(numberPrefab);
             newNumber.GetComponentInChildren<Text>().text = (i+1).ToString();
             newNumber.transform.SetParent(this.transform, false);

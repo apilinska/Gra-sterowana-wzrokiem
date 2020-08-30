@@ -1,9 +1,15 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+
+[Serializable]
+public class Buttons
+{
+	public ButtonName buttonName;
+	public Button buttonItem;
+}
 
 public class SceneManagment : MonoBehaviour 
 {
@@ -16,6 +22,36 @@ public class SceneManagment : MonoBehaviour
 			b.buttonItem.onClick.AddListener(() => { OpenScene(b.buttonName); });
 		}
 	}
+	
+	public void MouseEnter(string scene) 
+	{
+        EyeCursor.On();
+        StartCoroutine(loadButton(scene));
+    }
+
+    public void MouseExit() 
+	{
+        EyeCursor.Off();
+        StopAllCoroutines();
+    }
+
+	private IEnumerator loadButton(string scene) 
+	{
+        yield return new WaitForSeconds(EyeCursor.Time());
+		if(EyeCursor.IsFocused())
+		{
+			EyeCursor.Off();
+			if(scene == "MemoryStart") 
+			{
+				MemoryController.ClearResult();
+			} 
+			else if(scene == "DexterityGame") 
+			{
+				MemoryController.ClearResult();
+			}
+			SceneManager.LoadScene(scene);
+		}
+    }
 
 	void OpenScene(ButtonName name)
 	{
@@ -56,39 +92,8 @@ public class SceneManagment : MonoBehaviour
 				break;
 
 			default:
-				Debug.Log("Error");
 				break;
 		}
 	}
-
-	public void MouseEnter(string scene) {
-        EyeCursor.On();
-        StartCoroutine(loadButton(scene));
-    }
-
-    public void MouseExit() {
-        EyeCursor.Off();
-        StopAllCoroutines();
-    }
-
-	private IEnumerator loadButton(string scene) {
-        yield return new WaitForSeconds(EyeCursor.Time());
-		if(EyeCursor.IsFocused()){
-			EyeCursor.Off();
-			if(scene == "MemoryStart") {
-				MemoryController.ClearResult();
-			} 
-			else if(scene == "DexterityGame") {
-				MemoryController.ClearResult();
-			}
-			SceneManager.LoadScene(scene);
-		}
-    }
 }
 
-[Serializable]
-public class Buttons
-{
-	public ButtonName buttonName;
-	public Button buttonItem;
-}

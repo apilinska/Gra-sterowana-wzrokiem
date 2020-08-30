@@ -45,11 +45,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Cursor\CursorController.cs" />
+     <Compile Include="Assets\Scripts\Cursor\CursorCollider.cs" />
      <Compile Include="Assets\Scripts\Cursor\EyeCursor.cs" />
      <Compile Include="Assets\Scripts\Database\DbCommands.cs" />
      <Compile Include="Assets\Scripts\Database\DbConnect.cs" />
      <Compile Include="Assets\Scripts\Database\DbModels.cs" />
+     <Compile Include="Assets\Scripts\Device\DeviceData.cs" />
      <Compile Include="Assets\Scripts\Device\Initialize.cs" />
      <Compile Include="Assets\Scripts\Device\QLTypes.cs" />
      <Compile Include="Assets\Scripts\Device\QuickLink2.cs" />
@@ -61,8 +62,9 @@
      <Compile Include="Assets\Scripts\Dexterity\SpawnObstaclesController.cs" />
      <Compile Include="Assets\Scripts\Enums.cs" />
      <Compile Include="Assets\Scripts\GUI\GUIController.cs" />
+     <Compile Include="Assets\Scripts\Initialize\GameData.cs" />
+     <Compile Include="Assets\Scripts\Initialize\InitializeController.cs" />
      <Compile Include="Assets\Scripts\Keyboard\KeyboardController.cs" />
-     <Compile Include="Assets\Scripts\Keyboard\KeyboardSelect.cs" />
      <Compile Include="Assets\Scripts\Keyboard\KeyController.cs" />
      <Compile Include="Assets\Scripts\Log.cs" />
      <Compile Include="Assets\Scripts\Math\BoardController.cs" />

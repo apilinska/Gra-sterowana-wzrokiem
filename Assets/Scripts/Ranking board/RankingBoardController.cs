@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class RankingBoardController : DbConnect
@@ -16,10 +15,18 @@ public class RankingBoardController : DbConnect
         CreateBoard();
     } 
 
-    private void CreateBoard() {
-        for(int i=0; i < count; i++) {
+    private string RankPlayer(int index, string player) 
+    {
+        return (index + 1).ToString() + ". " + player.ToUpper();
+    }
+
+    private void CreateBoard() 
+    {
+        for(int i=0; i < count; i++) 
+        {
             RankingBoard data = rankingData[i];
-            if(data != null) {
+            if(data != null) 
+            {
                 GameObject newObject = Instantiate(rank);
                 newObject.transform.SetParent(this.transform, false);
                 newObject.GetComponent<RankingValues>().SetValues(RankPlayer(i,data.user), data.score, this.scoreId == data.id);
@@ -27,8 +34,10 @@ public class RankingBoardController : DbConnect
         }
     }
 
-    private void GetRankingData() {
-        switch(this.game) {
+    private void GetRankingData() 
+    {
+        switch(this.game) 
+        {
             case Game.Memory:
                 this.scoreId = GetLastMemoryScore();
                 rankingData = GetMemoryRankingBoard(count);
@@ -44,10 +53,6 @@ public class RankingBoardController : DbConnect
                 rankingData = GetMathRankingBoard(count);
                 break;
         }
-    }
-
-    private string RankPlayer(int index, string player) {
-        return (index + 1).ToString() + ". " + player.ToUpper();
     }
 }
 

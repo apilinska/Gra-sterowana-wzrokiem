@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,7 +25,8 @@ public class KeyboardController : DbConnect
         enterBtn.onClick.AddListener(() => Submit());
         clearBtn.onClick.AddListener(() => Clear());
 
-        foreach(Button button in buttons) {
+        foreach(Button button in buttons) 
+        {
             Text number = button.GetComponentInChildren<Text>();
             button.onClick.AddListener(() => SelectNumber(number.text));
         }
@@ -55,7 +55,8 @@ public class KeyboardController : DbConnect
 
     private void Delete() 
     {
-        if(this.value.Length > 0) {
+        if(this.value.Length > 0) 
+        {
             this.value = this.value.Substring(0, this.value.Length - 1);
             SetText();
         }

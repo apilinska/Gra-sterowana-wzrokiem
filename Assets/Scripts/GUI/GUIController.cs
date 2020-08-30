@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,13 +14,15 @@ public class GUIController : DbConnect
         SetUser();
     }
 
-    private void BackToMenu() {
+    private void BackToMenu()
+     {
         SceneManager.LoadScene("Menu");
     }
 
     private void SetUser() {
         User user = GetActiveUser();
-        if(user != null) {
+        if(user != null) 
+        {
             activeUser.text = user.name.ToUpper();
         }
     }

@@ -1,12 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
-public enum State {
-    ROW,
-    COLUMN
-}
 
 public class NumberBoxController : MonoBehaviour
 {
@@ -19,44 +12,52 @@ public class NumberBoxController : MonoBehaviour
     private State state;
     private int i = 0;
 
-
     void Start()
     {
         UnselectButton();
     }
 
-    public void SetCoordinates(State state, int i) {
+    public void SetCoordinates(State state, int i) 
+    {
         this.state = state;
         this.i = i;
     }
 
-    public void SetNumber(int number) {
+    public void SetNumber(int number) 
+    {
         this.number = number;
         GetComponentInChildren<Text>().text = number.ToString();
     }
 
-    public int GetNumber() {
+    public int GetNumber() 
+    {
         return this.number;
     }
 
-    public bool ChangeState(int sum) {
-        bool previousState = selected;
-        if(sum == number) {
-            SelectButton();
-        } else {
-            UnselectButton();
-        }
-
-        return (previousState ^ selected);
-    }
-
-    void SelectButton() {
+    void SelectButton() 
+    {
         selected = true;
         GetComponent<Image>().sprite = box_selected;
     }
 
-    void UnselectButton() {
+    void UnselectButton() 
+    {
         selected = false;
         GetComponent<Image>().sprite = box;
+    }
+
+    public bool ChangeState(int sum) 
+    {
+        bool previousState = selected;
+        if(sum == number) 
+        {
+            SelectButton();
+        } 
+        else 
+        {
+            UnselectButton();
+        }
+
+        return (previousState ^ selected);
     }
 }

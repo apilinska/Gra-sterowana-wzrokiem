@@ -26,14 +26,6 @@ public class MenuController : DbConnect
         Application.Quit();
     }
 
-    private void SetUser() 
-    {
-        User activeUser = GetActiveUser();
-        if(activeUser != null) {
-            User.text = activeUser.name.ToUpper();
-        }
-    }
-
     public void MouseEnter(GameObject button) 
     {
         EyeCursor.On();
@@ -46,14 +38,27 @@ public class MenuController : DbConnect
         StopAllCoroutines();
     }
 
+    private void SetUser() 
+    {
+        User activeUser = GetActiveUser();
+        if(activeUser != null) 
+        {
+            User.text = activeUser.name.ToUpper();
+        }
+    }
+
     private IEnumerator loadButton(GameObject button) 
     {
         yield return new WaitForSeconds(EyeCursor.Time());
-        if(EyeCursor.IsFocused()) {
+        if(EyeCursor.IsFocused()) 
+        {
             EyeCursor.Off();
-            if(button.tag == "exit") {
+            if(button.tag == "exit") 
+            {
                 ExitGame();
-            } else if(button.tag == "logout") {
+            } 
+            else if(button.tag == "logout") 
+            {
                 UserLogout();
             }
         }

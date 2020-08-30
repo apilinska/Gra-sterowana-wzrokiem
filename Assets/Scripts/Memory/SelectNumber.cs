@@ -22,7 +22,8 @@ public class SelectNumber : DbConnect
     }
 
     void addClickListeners() {
-        foreach(Button button in keyboard) {
+        foreach(Button button in keyboard) 
+        {
             Text number = button.GetComponentInChildren<Text>();
             button.onClick.AddListener(() => selectNumber(number.text));
         }
@@ -35,30 +36,6 @@ public class SelectNumber : DbConnect
         index++;
     }
 
-    private void selectNumber(string number) 
-    {
-        if(index < count) {
-            setNumber(number);
-            if(index == count) {
-                end_game = true;
-                StartCoroutine(endGame());
-            }
-        }
-    }
-
-    private IEnumerator endGame() 
-    {
-        MemoryController.SelectNumber = selected;
-        yield return new WaitForSeconds(1);
-        if(MemoryController.IsLastGame()) {
-            AddScore();
-            SceneManager.LoadScene("MemoryResult");
-        } else {
-            MemoryController.NextGame();
-            SceneManager.LoadScene("MemoryStart");
-        }
-    }
-
     private void AddScore() 
     {
         SetConnection();
@@ -68,7 +45,8 @@ public class SelectNumber : DbConnect
 
     public void MouseEnter(GameObject button) 
     {
-        if(!end_game) {
+        if(!end_game) 
+        {
             EyeCursor.On();
             StartCoroutine(loadButton(button));
         }
@@ -76,19 +54,50 @@ public class SelectNumber : DbConnect
 
     public void MouseExit() 
     {
-        if(!end_game) {
+        if(!end_game) 
+        {
             EyeCursor.Off();
             StopAllCoroutines();
+        }
+    }
+
+    private void selectNumber(string number) 
+    {
+        if(index < count) 
+        {
+            setNumber(number);
+            if(index == count) 
+            {
+                end_game = true;
+                StartCoroutine(endGame());
+            }
         }
     }
 
     private IEnumerator loadButton(GameObject button) 
     {
         yield return new WaitForSeconds(EyeCursor.Time());
-        if(EyeCursor.IsFocused()) {
+        if(EyeCursor.IsFocused()) 
+        {
             EyeCursor.Off();
             Text number = button.GetComponentInChildren<Text>();
             selectNumber(number.text);
+        }
+    }
+
+    private IEnumerator endGame() 
+    {
+        MemoryController.SelectNumber = selected;
+        yield return new WaitForSeconds(1);
+        if(MemoryController.IsLastGame()) 
+        {
+            AddScore();
+            SceneManager.LoadScene("MemoryResult");
+        } 
+        else 
+        {
+            MemoryController.NextGame();
+            SceneManager.LoadScene("MemoryStart");
         }
     }
 }

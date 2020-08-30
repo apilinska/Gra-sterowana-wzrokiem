@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class BoardGenerator : MonoBehaviour
@@ -23,7 +21,40 @@ public class BoardGenerator : MonoBehaviour
         GenerateGrid();
     }
 
-    void SetBoardSize() {
+    bool IsEmptyBox(int i, int j) 
+    {
+        return ((i == 0 || i == grid_size-1) && (j == 0 || j == grid_size-1));
+    }
+
+    bool IsNumberBox(int i, int j) 
+    {
+        return ((i == 0 || i == grid_size-1 || j == 0 || j == grid_size-1) && !IsEmptyBox(i, j));
+    }
+
+    void AddEmptyBox(int i, int j) 
+    {
+        board[i][j] = CreateNewObject(empty_box);
+    }
+
+    void AddButtonBox(int i, int j) 
+    {
+        board[i][j] = CreateNewObject(button_box_selected);
+    }
+
+    void AddNumberBox(int i, int j) 
+    {
+        board[i][j] = CreateNewObject(number_box);
+    }
+
+    GameObject CreateNewObject(GameObject objectPrefab) 
+    {
+        GameObject newObject = Instantiate(objectPrefab);
+        newObject.transform.SetParent(this.transform, false);
+        return newObject;
+    }
+
+    void SetBoardSize() 
+    {
         grid_size = board_size + 2;
         float width = GetComponent<RectTransform>().rect.width;
         float height = GetComponent<RectTransform>().rect.height;        
@@ -32,45 +63,25 @@ public class BoardGenerator : MonoBehaviour
 
     }
 
-    void GenerateGrid() {
-        for(int i = 0; i < grid_size; i++) {
-            for(int j = 0; j < grid_size; j++) {
-                if(IsEmptyBox(i,j)) {
+    void GenerateGrid() 
+    {
+        for(int i = 0; i < grid_size; i++) 
+        {
+            for(int j = 0; j < grid_size; j++) 
+            {
+                if(IsEmptyBox(i,j)) 
+                {
                     AddEmptyBox(i,j);
                 }
-                else if(IsNumberBox(i,j)) {
+                else if(IsNumberBox(i,j)) 
+                {
                     AddNumberBox(i,j);
                 }
-                else {
+                else 
+                {
                     AddButtonBox(i,j);
                 }
             }
         }
-    }
-
-    bool IsEmptyBox(int i, int j) {
-        return ((i == 0 || i == grid_size-1) && (j == 0 || j == grid_size-1));
-    }
-
-    bool IsNumberBox(int i, int j) {
-        return ((i == 0 || i == grid_size-1 || j == 0 || j == grid_size-1) && !IsEmptyBox(i, j));
-    }
-
-    void AddEmptyBox(int i, int j) {
-        board[i][j] = CreateNewObject(empty_box);
-    }
-
-    void AddButtonBox(int i, int j) {
-        board[i][j] = CreateNewObject(button_box_selected);
-    }
-
-    void AddNumberBox(int i, int j) {
-        board[i][j] = CreateNewObject(number_box);
-    }
-
-    GameObject CreateNewObject(GameObject objectPrefab) {
-        GameObject newObject = Instantiate(objectPrefab);
-        newObject.transform.SetParent(this.transform, false);
-        return newObject;
     }
 }

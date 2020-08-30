@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnObstaclesController : MonoBehaviour
 {
@@ -23,7 +21,8 @@ public class SpawnObstaclesController : MonoBehaviour
     void Start()
     {
         RectTransform panelRectTransform = this.GetComponent<RectTransform>();
-        if(panelRectTransform) {
+        if(panelRectTransform) 
+        {
             xMin = panelRectTransform.rect.xMin + border;
             xMax = panelRectTransform.rect.xMax - border;
         }
@@ -33,37 +32,42 @@ public class SpawnObstaclesController : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-
-        if(spawnTimer >= spawnTimerStop) {
+        if(spawnTimer >= spawnTimerStop) 
+        {
             spawnTimer = 0f;
-            if(spawnTimerStop > 0.3f) {
+            if(spawnTimerStop > 0.3f) 
+            {
                 spawnTimerStop -= 0.1f * spawnTimerStop;
             }
             SpawnObject();
         }
     }
 
-    private void SpawnObject() {
-        if(spawnBonus == spawnBonusStop) {
+    private void SpawnObject() 
+    {
+        if(spawnBonus == spawnBonusStop) 
+        {
             spawnBonus = 0;
             SpawnBonus();
-        } else {
+        } 
+        else 
+        {
             spawnBonus += 1;
             SpawnObstacle();
         }
     }
 
-    private void SpawnBonus() {
+    private void SpawnBonus() 
+    {
         GameObject newBonus = Instantiate(bonusPrefab);
         newBonus.transform.SetParent(this.transform, false);
-        newBonus.transform.localPosition = 
-            new Vector3(Random.Range(xMin, xMax), 600, 0);
+        newBonus.transform.localPosition = new Vector3(Random.Range(xMin, xMax), 600, 0);
     }
 
-    private void SpawnObstacle() {
+    private void SpawnObstacle() 
+    {
         GameObject newObstacle = Instantiate(obstaclePrefab);
         newObstacle.transform.SetParent(this.transform, false);
-        newObstacle.transform.localPosition = 
-            new Vector3(Random.Range(xMin, xMax), 600, 0);
+        newObstacle.transform.localPosition = new Vector3(Random.Range(xMin, xMax), 600, 0);
     }
 }

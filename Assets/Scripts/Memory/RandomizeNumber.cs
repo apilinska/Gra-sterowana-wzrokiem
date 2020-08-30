@@ -22,11 +22,17 @@ public class RandomizeNumber : MonoBehaviour
         randomizeNumber();
     }
 
+    int getRandomNumber(int max = 9) 
+    {
+        return UnityEngine.Random.Range(0, max) + 1; /* [ 1 - max ] */
+    }
+
     void Update()
     {
         timer += Time.deltaTime;
         timerText.text = Math.Round(timer, 1).ToString();
-        if(timer >= timerStop) {
+        if(timer >= timerStop) 
+        {
             SceneManager.LoadScene("MemorySelect");
         }
     }
@@ -40,21 +46,21 @@ public class RandomizeNumber : MonoBehaviour
         int random = 0;
         int lastRandom = 0;
 
-        for(int n = 0; n < numberLength; n++) {
+        for(int n = 0; n < numberLength; n++) 
+        {
             random = getRandomNumber(); 
-            if(lastRandom != 0 && random == lastRandom) {
-                do {
+            if(lastRandom != 0 && random == lastRandom) 
+            {
+                do 
+                {
                     random = getRandomNumber();
-                } while(random == lastRandom);
+                } 
+                while(random == lastRandom);
             }
             lastRandom = random;
             randomizedNumberText.text += " " + random.ToString();
             randomText += random.ToString();
         }
         MemoryController.RandomizeNumber = randomText;
-    }
-
-    int getRandomNumber(int max = 9) {
-        return UnityEngine.Random.Range(0, max) + 1; /* [ 1 - max ] */
     }
 }

@@ -14,26 +14,50 @@ public class UserController : DbConnect
 
     void Start()
     {
-        if(userPrefab && newUserPrefab) {
+        if(userPrefab && newUserPrefab) 
+        {
             GetAllUsers();
             SetUsersData();
         }
     }
 
-    private void GetAllUsers() {
+    private void GetAllUsers() 
+    {
         users = GetUsers();
     }
 
-    private void SetUsersData() {
-        if(users.Count > 0) {
-            foreach(var user in users) {
-                CreateUserButton(user);
-            }
-        }
-        CreateNewUserButton();
+    private void AddUser() 
+    {
+        SceneManager.LoadScene("AddUser");
     }
 
-    private void CreateUserButton(User user) {
+    private void SelectUser(User user) 
+    {
+        InsertUserSession(user.id);
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void MouseEnter(string userName = null) 
+    {
+        EyeCursor.On();
+        StartCoroutine(loadButton(userName));
+    }
+
+    public void MouseExit() 
+    {
+        EyeCursor.Off();
+        StopAllCoroutines();
+    }
+
+    private void CreateNewUserButton() 
+    {
+        GameObject newObject = Instantiate(newUserPrefab);
+        newObject.transform.SetParent(this.transform, false);
+        newObject.GetComponent<Button>().onClick.AddListener(() => AddUser());
+    }
+
+    private void CreateUserButton(User user) 
+    {
         GameObject newObject = Instantiate(userPrefab);
         newObject.transform.SetParent(this.transform, false);
         string userName = user.name.ToUpper();
@@ -41,39 +65,29 @@ public class UserController : DbConnect
         newObject.GetComponent<Button>().onClick.AddListener(() => SelectUser(user));
     }
 
-    private void CreateNewUserButton() {
-        GameObject newObject = Instantiate(newUserPrefab);
-        newObject.transform.SetParent(this.transform, false);
-        newObject.GetComponent<Button>().onClick.AddListener(() => AddUser());
+    private void SetUsersData() 
+    {
+        if(users.Count > 0) 
+        {
+            foreach(var user in users) 
+            {
+                CreateUserButton(user);
+            }
+        }
+        CreateNewUserButton();
     }
 
-    private void AddUser() {
-        SceneManager.LoadScene("AddUser");
-    }
-
-    private void SelectUser(User user) {
-        InsertUserSession(user.id);
-        SceneManager.LoadScene("Menu");
-    }
-
-    public void MouseEnter(string userName = null) {
-        EyeCursor.On();
-        StartCoroutine(loadButton(userName));
-    }
-
-    public void MouseExit() {
-        EyeCursor.Off();
-        StopAllCoroutines();
-    }
-
-	private IEnumerator loadButton(string userName) {
+	private IEnumerator loadButton(string userName) 
+    {
         yield return new WaitForSeconds(EyeCursor.Time());
-		if(EyeCursor.IsFocused()){
+		if(EyeCursor.IsFocused())
+        {
 			EyeCursor.Off();
             if(userName != null) 
             {
                 User selectedUser = users.Find(x => x.name.ToLower() == userName.ToLower());
-                if(selectedUser != null) {
+                if(selectedUser != null) 
+                {
                     InsertUserSession(selectedUser.id);
                     SceneManager.LoadScene("Menu");
                 }

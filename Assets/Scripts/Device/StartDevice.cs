@@ -3,6 +3,9 @@ using System;
 using QuickLink2DotNet;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class StartDevice : MonoBehaviour
 {
@@ -29,83 +32,74 @@ public class StartDevice : MonoBehaviour
 
     void Start()
     {
-        deviceId = QuickStart.Initialize.QL2Initialize(filename_settings);
-        Log.Save("device id: " + deviceId);
+        // deviceId = QuickStart.Initialize.QL2Initialize(filename_settings);
+        // Log.Save("device id: " + deviceId);
 
-        // try 
+        // // try 
+        // // {
+        // //     QuickLink2API.QLDevice_Stop(deviceId);
+        // // }
+        // // catch (Exception ex)
+        // // {
+        // //     Debug.Log("try to stop: " + ex.Message);
+        // //     Log.Save("try to stop: " + ex.Message);
+        // // }
+
+        // if (QuickLink2API.QLDevice_Start(deviceId) != QLError.QL_ERROR_OK) {
+        //     Log.Save("Device not started successfully!");
+        //     Debug.Log("Device not started successfully!");
+        //     return;
+        // } else {
+        //     Debug.Log("Device started successfully!");
+        // }
+
+        // // if(error != QLError.QL_ERROR_OK) {
+        // //     Log.Save("QLDevice_Start: " + error.ToString());
+        // // }
+        // QLDeviceInfo deviceInfo;
+        // if (QuickLink2API.QLDevice_GetInfo(deviceId, out deviceInfo) == QLError.QL_ERROR_OK) {
+        //     string info = "";
+        //     info = "model: " + deviceInfo.modelName + "\n\n" + "sensor height: " + deviceInfo.sensorHeight + 
+        //         "\n\n"  + "sensor width: " + deviceInfo.sensorWidth  + "\n\n" + "serial number: " +  deviceInfo.serialNumber;
+        //     // Log.Save("info: " + info);
+        //     deviceInfoText.text = info;
+        // }
+        // // if(error != QLError.QL_ERROR_OK) {
+        // //     Log.Save("QLDevice_GetInfo: " + error.ToString());
+        // // }
+
+        // // QuickLink2API.QLCalibration_Create(0, out calibrationId);
+        // // QuickLink2API.QLCalibration_Load(calibrationFilename, ref calibrationId);
+        // // QuickLink2API.QLDevice_ApplyCalibration(deviceId, calibrationId);
+
+        // frameData = new QLFrameData();
+        // error = QLError.QL_ERROR_OK;
+        // try
         // {
-        //     QuickLink2API.QLDevice_Stop(deviceId);
+        //     if((error = QuickLink2API.QLDevice_GetFrame(deviceId, 1000, ref frameData)) != QLError.QL_ERROR_OK)
+        //     {
+        //         Debug.Log("Left eye found: " + frameData.LeftEye.Found.ToString());
+        //     }
+        //     else
+        //     {
+        //         Debug.Log("Error: " + error);
+        //     }
         // }
         // catch (Exception ex)
         // {
-        //     Debug.Log("try to stop: " + ex.Message);
-        //     Log.Save("try to stop: " + ex.Message);
+        //     //Log.Save("QLDevice_GetFrame error | " + ex.Message);
+        //     Debug.Log("QLDevice_GetFrame error | " + ex.Message);
         // }
-
-        if (QuickLink2API.QLDevice_Start(deviceId) != QLError.QL_ERROR_OK) {
-            Log.Save("Device not started successfully!");
-            Debug.Log("Device not started successfully!");
-            return;
-        } else {
-            Debug.Log("Device started successfully!");
-        }
-
-        // if(error != QLError.QL_ERROR_OK) {
-        //     Log.Save("QLDevice_Start: " + error.ToString());
-        // }
-        QLDeviceInfo deviceInfo;
-        if (QuickLink2API.QLDevice_GetInfo(deviceId, out deviceInfo) == QLError.QL_ERROR_OK) {
-            string info = "";
-            info = "model: " + deviceInfo.modelName + "\n\n" + "sensor height: " + deviceInfo.sensorHeight + 
-                "\n\n"  + "sensor width: " + deviceInfo.sensorWidth  + "\n\n" + "serial number: " +  deviceInfo.serialNumber;
-            // Log.Save("info: " + info);
-            deviceInfoText.text = info;
-        }
-        // if(error != QLError.QL_ERROR_OK) {
-        //     Log.Save("QLDevice_GetInfo: " + error.ToString());
-        // }
-
-        // QuickLink2API.QLCalibration_Create(0, out calibrationId);
-        // QuickLink2API.QLCalibration_Load(calibrationFilename, ref calibrationId);
-        // QuickLink2API.QLDevice_ApplyCalibration(deviceId, calibrationId);
-
-        frameData = new QLFrameData();
-        error = QLError.QL_ERROR_OK;
-        try
-        {
-            if((error = QuickLink2API.QLDevice_GetFrame(deviceId, 1000, ref frameData)) != QLError.QL_ERROR_OK)
-            {
-                Debug.Log("Left eye found: " + frameData.LeftEye.Found.ToString());
-            }
-            else
-            {
-                Debug.Log("Error: " + error);
-            }
-        }
-        catch (Exception ex)
-        {
-            //Log.Save("QLDevice_GetFrame error | " + ex.Message);
-            Debug.Log("QLDevice_GetFrame error | " + ex.Message);
-        }
-    }
-
-    private void SelectUser() {
-        SceneManager.LoadScene("SelectUser");
     }
 
     void Update()
     {
-        if(Input.GetKeyDown("space")) 
-        {
-            SelectUser();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Device stopped");
-            QuickLink2API.QLDevice_Stop(deviceId);
-            Application.Quit();
-        }
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     Debug.Log("Device stopped");
+        //     QuickLink2API.QLDevice_Stop(deviceId);
+        //     Application.Quit();
+        // }
         //QuickLink2API.QLDevice_CalibrateEyeRadius(deviceId, distance, out leftRadius, out rightRadius);
         //Debug.Log("leftRadius " + leftRadius);
         //Debug.Log("rightRadius " + rightRadius);
