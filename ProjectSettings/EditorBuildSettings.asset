@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/InitializeOld.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Initialize.unity
+    guid: 7d178e7bb8522a8428c4d2bffe6e7fb9
   - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: 8b2f07bc5c82e63448fc74e53da0fcfb
@@ -29,15 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Memory/MemoryResult.unity
     guid: 1650ba114b947c448a08a5474b5769f0
-  - enabled: 0
-    path: Assets/Scenes/Start game/VisionStartMenu.unity
-    guid: d55d40be03363d34fbf13c4dd32e52e7
-  - enabled: 0
-    path: Assets/Scenes/Vision/VisionGame.unity
-    guid: e7d7c29414566db43a8e49bd5a4aa55c
-  - enabled: 0
-    path: Assets/Scenes/Vision/VisionResult.unity
-    guid: 687eaa280ef96364b802a1d34253c3e3
   - enabled: 1
     path: Assets/Scenes/Start game/DexterityStartMenu.unity
     guid: 74bf9ef141d257445aaa7fb0c8bd3ecd
@@ -47,9 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dexterity/DexterityResult.unity
     guid: b60ad3dfd93035c48a058fbad7fcdb61
-  - enabled: 0
-    path: Assets/Scenes/Start game/AttentionStartMenu.unity
-    guid: f439871f358d6cc44a1a6d92866ce702
   - enabled: 1
     path: Assets/Scenes/Math/MathGame.unity
     guid: 7ef304e250ed811409608f5ebec2e2b1

@@ -61,7 +61,35 @@ public class DeviceData : MonoBehaviour
     {
         path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "\\eye_data.txt";
         this.distance = (-1) * Camera.main.transform.position.z;
-        Cursor.lockState = GameData.IsDeviceMode() ? CursorLockMode.Locked : CursorLockMode.None;
+        SetCursor();
+    }
+
+    private Frame GetFrame(EyeData data) 
+    {
+        return data?.values?.frame;
+    }
+
+    public Vector3? CursorPosition() 
+    {
+        if(this.cursor_pos != null) 
+        {
+            return new Vector3(this.cursor_pos.x, this.cursor_pos.y, 0);
+        } 
+        return null;
+    }
+
+    private void SetCursor() 
+    {
+        if(GameData.IsDeviceMode()) 
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         this.cursor.gameObject.SetActive(GameData.IsDeviceMode());
     }
 
@@ -81,48 +109,36 @@ public class DeviceData : MonoBehaviour
         }
     }
 
-    void ReadPositionFromFile()
+    private void ReadPositionFromFile()
     {
         float? x = null, y = null;
-        FileStream logFileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-        StreamReader logFileReader = new StreamReader(logFileStream);
-        EyeData data = new EyeData();
+        if(File.Exists(path)) {
+            FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            StreamReader fileReader = new StreamReader(fileStream);
+            EyeData data = new EyeData();
+            Frame frame = null;
 
-        while (!logFileReader.EndOfStream)
-        {
-            string line = logFileReader.ReadLine();
-            data = JsonUtility.FromJson<EyeData>(line);
-            x = data?.values?.frame?.avg?.x;
-            y = data?.values?.frame?.avg?.y;
-        }
-        logFileReader.Close();
-        logFileStream.Close();
+            while (!fileReader.EndOfStream)
+            {
+                string line = fileReader.ReadLine();
+                data = JsonUtility.FromJson<EyeData>(line);
+                frame = GetFrame(data);
+                if(frame != null) 
+                {
+                    x = frame.raw.x;
+                    y = frame.raw.y;
+                }
+            }
+            fileReader.Close();
+            fileStream.Close();
 
-        if(data.category == "tracker" && x != 0 && y != 0) 
-        {
-            // Cursor.lockState = CursorLockMode.Locked;
-            // cursor.gameObject.SetActive(true);
-            // if(x != 0 && y != 0) {
-            this.cursor_pos = new Vector2((float)x, (float)y);
-            this.cursor_world_pos = Camera.main.ScreenToWorldPoint(new Vector3(cursor_pos.x, Camera.main.pixelHeight - cursor_pos.y, distance));
-            this.cursor_world_pos *= 10f;
-            cursor.transform.position = new Vector3(cursor_world_pos.x, cursor_world_pos.y, cursor.transform.position.z);
-            // }
-        } 
-        // else 
-        // {
-        //     Cursor.lockState = CursorLockMode.None;
-        //     cursor.gameObject.SetActive(false);
-        // }
-    }
-
-    public Vector3? CursorPosition() 
-    {
-        if(this.cursor_pos != null) 
-        {
-            return new Vector3(this.cursor_pos.x, this.cursor_pos.y, 0);
-        } else {
-            return null;
+            if(x != 0 && y != 0) 
+            {
+                this.cursor_pos = new Vector2((float)x, (float)y);
+                this.cursor_world_pos = Camera.main.ScreenToWorldPoint(new Vector3(cursor_pos.x, Camera.main.pixelHeight - cursor_pos.y, distance));
+                this.cursor_world_pos *= 10f;
+                cursor.transform.position = new Vector3(cursor_world_pos.x, cursor_world_pos.y, cursor.transform.position.z);
+            } 
         }
     }
 }

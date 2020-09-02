@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class GameData : MonoBehaviour
+﻿public static class GameData
 {
     public static GameMode gameMode = GameMode.Simulation;
 
