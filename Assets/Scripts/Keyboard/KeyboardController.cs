@@ -12,6 +12,7 @@ public class KeyboardController : DbConnect
     public Button deleteBtn;
     public Button enterBtn;
     public Button clearBtn;
+    public Button backToLogin;
     public Button[] buttons;
 
     private string value = "";
@@ -24,6 +25,7 @@ public class KeyboardController : DbConnect
         deleteBtn.onClick.AddListener(() => Delete());
         enterBtn.onClick.AddListener(() => Submit());
         clearBtn.onClick.AddListener(() => Clear());
+        backToLogin.onClick.AddListener(() => Login());
 
         foreach(Button button in buttons) 
         {
@@ -45,6 +47,11 @@ public class KeyboardController : DbConnect
     private bool dialogIsHidden() 
     {
         return !dialog.gameObject.activeSelf;
+    }
+
+    private void Login() 
+    {
+        SceneManager.LoadScene("Login");
     }
 
     private void Clear() 
@@ -100,7 +107,7 @@ public class KeyboardController : DbConnect
     private void SelectNumber(string keyboardInput) 
     {
         string newValue = this.value + keyboardInput;
-        if(newValue.Length <= 20) 
+        if(newValue.Length <= 16) 
         {
             this.value = newValue;
             SetText();
@@ -147,6 +154,10 @@ public class KeyboardController : DbConnect
 
                 case KeyType.Clear:
                     Clear();
+                    break;
+
+                case KeyType.Login:
+                    Login();
                     break;
             }
 		}

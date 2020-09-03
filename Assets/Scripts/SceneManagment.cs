@@ -47,7 +47,7 @@ public class SceneManagment : MonoBehaviour
 			} 
 			else if(scene == "DexterityGame") 
 			{
-				MemoryController.ClearResult();
+				DexterityController.ClearPoints();
 			}
 			SceneManager.LoadScene(scene);
 		}

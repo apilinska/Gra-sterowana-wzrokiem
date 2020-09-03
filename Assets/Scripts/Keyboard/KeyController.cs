@@ -12,7 +12,9 @@ public class KeyController : MonoBehaviour
 
     public void OnMouseEnter() 
     {
-        string input = gameObject.GetComponentInChildren<Text>().text;
+        var textComponent = gameObject.GetComponentInChildren<Text>();
+        string input = textComponent != null ? textComponent.text : "Menu";
+
         var keyboardController = controller();
         if(keyboardController != null) 
         {

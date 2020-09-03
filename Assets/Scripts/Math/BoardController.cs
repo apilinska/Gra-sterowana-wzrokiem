@@ -19,7 +19,7 @@ public class Numbers
 public class BoardController : DbConnect
 {
     [Header("Board")]
-    [Range(5, 7)]
+    [Range(5, 5)]
     public int board_size = 5;
     public BoardRows[] board_rows;
     public Numbers[] number_rows;
@@ -31,6 +31,7 @@ public class BoardController : DbConnect
     private float timer = 0f;
     private bool timerStop = false;
 
+    /* Rullo game */
     void Start()
     {
         Initialize();
@@ -73,11 +74,10 @@ public class BoardController : DbConnect
         {
 			EyeCursor.Off();
             GameObject obj = board_rows[i].cols[j];
+            ButtonBoxController boxController = ButtonBoxController(obj);
             ButtonBoxController(obj).ChangeState();
 		}
     }
-
-    
 
     void SetRows(int[] numbers) 
     {
@@ -172,7 +172,7 @@ public class BoardController : DbConnect
     void Initialize()
     {
         MathController.ClearNumberOfMoves();
-        board = MathController.GetBoard_5x5_2();
+        board = MathController.GetBoard_5x5();
 
         for(int i = 0; i < board_rows.Length; i++) 
         {

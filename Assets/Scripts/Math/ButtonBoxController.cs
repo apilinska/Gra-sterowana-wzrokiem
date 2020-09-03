@@ -48,8 +48,8 @@ public class ButtonBoxController : MonoBehaviour
 
     public void SetNumberAndCoordinates(int number, int i, int j) 
     {
-        SetNumber(number);
         SetCoordinates(i, j);
+        SetNumber(number);
     }
 
     void SelectButton() 

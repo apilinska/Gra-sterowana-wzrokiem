@@ -59,7 +59,7 @@ public class DeviceData : MonoBehaviour
 
     void Start()
     {
-        path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "\\eye_data.txt";
+        path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "\\eyeTribeData.txt";
         this.distance = (-1) * Camera.main.transform.position.z;
         SetCursor();
     }
@@ -101,6 +101,8 @@ public class DeviceData : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.M))
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("Initialize");
         }
         if(Input.GetKeyDown(KeyCode.Escape)) 
@@ -125,8 +127,8 @@ public class DeviceData : MonoBehaviour
                 frame = GetFrame(data);
                 if(frame != null) 
                 {
-                    x = frame.raw.x;
-                    y = frame.raw.y;
+                    x = frame.avg.x;
+                    y = frame.avg.y;
                 }
             }
             fileReader.Close();
@@ -136,8 +138,9 @@ public class DeviceData : MonoBehaviour
             {
                 this.cursor_pos = new Vector2((float)x, (float)y);
                 this.cursor_world_pos = Camera.main.ScreenToWorldPoint(new Vector3(cursor_pos.x, Camera.main.pixelHeight - cursor_pos.y, distance));
-                this.cursor_world_pos *= 10f;
-                cursor.transform.position = new Vector3(cursor_world_pos.x, cursor_world_pos.y, cursor.transform.position.z);
+                this.cursor_world_pos *= distance;
+                Vector3 newPos = new Vector3(cursor_world_pos.x, cursor_world_pos.y, cursor.transform.position.z);
+                cursor.transform.position = newPos;
             } 
         }
     }

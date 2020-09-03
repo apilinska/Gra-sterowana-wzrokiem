@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 578283865}
   - component: {fileID: 578283864}
   m_Layer: 5
-  m_Name: "LOGIK\u0118 MATEMATYCZN\u0104"
+  m_Name: "ARYTMETYK\u0118"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -479,13 +479,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 64
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "LOGIK\u0118 MATEMATYCZN\u0104"
+  m_Text: "ARYTMETYK\u0118"
 --- !u!222 &578283865
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1370,6 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 315654291}
+  cur_text: {fileID: 0}
 --- !u!1001 &1377314571
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class SpawnObstaclesController : MonoBehaviour
     public float spawnTimerStop = 3f;
 
     private float spawnTimer = 0f;
-    private float border = 140f;
+    private float border = 230f;
     private int spawnNumber = 1;
     private float xMin;
     private float xMax;

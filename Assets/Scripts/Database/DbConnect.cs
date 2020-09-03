@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class DbConnect : DbCommands
+public class DbConnect : MonoBehaviour
 {
     MySqlConnection connection = null;
     MySqlDataReader reader = null;
@@ -17,8 +17,6 @@ public class DbConnect : DbCommands
     string math_results = "math_results";
     string memory_results = "memory_results";
     string dexterity_results = "dexterity_results";
-
-    //User activeUser = null;
 
     void Start()
     {
@@ -33,8 +31,10 @@ public class DbConnect : DbCommands
         connection = new MySqlConnection(connectionString);
     }
 
-    private void CloseConnection() {
-        if(connection.State != ConnectionState.Closed) {
+    private void CloseConnection() 
+    {
+        if(connection.State != ConnectionState.Closed) 
+        {
             connection.Close();  
         }
     }
@@ -43,7 +43,8 @@ public class DbConnect : DbCommands
     {
         command = null;
         commandString = null;
-        if(connection.State != ConnectionState.Open) {
+        if(connection.State != ConnectionState.Open) 
+        {
             connection.Open();  
         }
     }
@@ -55,7 +56,6 @@ public class DbConnect : DbCommands
         connectionBuilder.UserID = "root";
         connectionBuilder.Password = "";
         connectionBuilder.Database = databaseName;
-
         connectionString = connectionBuilder.ToString();
     }
 
@@ -68,7 +68,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = GetLastSessionCmd();
+            commandString = DbCommands.GetLastSessionCmd();
             command = new MySqlCommand(commandString, connection);
             reader = command.ExecuteReader();
             if(reader.Read())
@@ -91,7 +91,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = GetUserByNameCmd();
+            commandString = DbCommands.GetUserByNameCmd();
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("name", name);
             reader = command.ExecuteReader();
@@ -115,7 +115,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = GetUsersCmd();
+            commandString = DbCommands.GetUsersCmd();
             command = new MySqlCommand(commandString, connection);
             reader = command.ExecuteReader();
             
@@ -138,12 +138,12 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = InsertUserCmd();
+            commandString = DbCommands.InsertUserCmd();
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("userName", userName);
             command.ExecuteNonQuery();
 
-            commandString = InsertNewUserSessionCmd();
+            commandString = DbCommands.InsertNewUserSessionCmd();
             command = new MySqlCommand(commandString, connection);
             command.ExecuteNonQuery();
 
@@ -165,7 +165,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = InsertUserSessionCmd();
+            commandString = DbCommands.InsertUserSessionCmd();
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("userId", userId);
             command.ExecuteNonQuery();
@@ -185,7 +185,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = InsertNewUserSessionCmd();
+            commandString = DbCommands.InsertNewUserSessionCmd();
             command = new MySqlCommand(commandString, connection);
             command.ExecuteNonQuery();
             CloseConnection();
@@ -257,7 +257,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = InsertGameScoreCmd(game);
+            commandString = DbCommands.InsertGameScoreCmd(game);
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("score", score);
             command.ExecuteNonQuery();
@@ -276,7 +276,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = GetLastScoreIdCmd(game);
+            commandString = DbCommands.GetLastScoreIdCmd(game);
             command = new MySqlCommand(commandString, connection);
             scoreId = Convert.ToInt32(command.ExecuteScalar());
             CloseConnection();
@@ -295,7 +295,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = GetRankingBoardCmd(game);
+            commandString = DbCommands.GetRankingBoardCmd(game);
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("limit", limit);
             reader = command.ExecuteReader();
@@ -320,7 +320,7 @@ public class DbConnect : DbCommands
         try
         {
             OpenConnection();
-            commandString = InsertLogCmd();
+            commandString = DbCommands.InsertLogCmd();
             command = new MySqlCommand(commandString, connection);
             command.Parameters.AddWithValue("exception", exceptionMessage);
             command.Parameters.AddWithValue("command", sqlCommand);
@@ -329,7 +329,6 @@ public class DbConnect : DbCommands
         }
         catch (Exception ex)
         {
-            Debug.Log("Dodac do pliku: " + ex.Message);
             Log.Save(ex.Message);
         }
     }

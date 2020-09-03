@@ -268,3 +268,6 @@ D:\# praca magisterska\Gra sterowana wzrokiem\Gra sterowana wzrokiem - aplikacja
 D:\# praca magisterska\Gra sterowana wzrokiem\Gra sterowana wzrokiem - aplikacja\Gaze project\obj\Debug\Assembly-CSharp.pdb
 D:\# praca magisterska\Gra sterowana wzrokiem\Gra sterowana wzrokiem - aplikacja\Gaze project\Temp\bin\Debug\Assembly-CSharp.dll
 D:\# praca magisterska\Gra sterowana wzrokiem\Gra sterowana wzrokiem - aplikacja\Gaze project\obj\Debug\Assembly-CSharp.dll
+D:\Gra sterowana wzrokiem\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\Gra sterowana wzrokiem\obj\Debug\Assembly-CSharp.dll
+D:\Gra sterowana wzrokiem\obj\Debug\Assembly-CSharp.pdb

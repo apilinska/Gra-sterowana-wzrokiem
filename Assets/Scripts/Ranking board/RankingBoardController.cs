@@ -22,7 +22,8 @@ public class RankingBoardController : DbConnect
 
     private void CreateBoard() 
     {
-        for(int i=0; i < count; i++) 
+        int rankingBoardLen = Mathf.Min(rankingData.Count, count);
+        for(int i=0; i < rankingBoardLen; i++) 
         {
             RankingBoard data = rankingData[i];
             if(data != null) 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : DbConnect
 {
@@ -14,13 +15,23 @@ public class PlayerController : DbConnect
         targetPos = transform.position;
     }
 
-    private DeviceData GetDeviceData() {
+    private DeviceData GetDeviceData() 
+    {
         return GetComponent<DeviceData>();
     }
 
     private void MoveByMouse() 
     {
         MovePlayer(Input.mousePosition);
+    }
+
+    private void SetScore() 
+    {
+        var textComponent = GetComponentInChildren<Text>();
+        if(textComponent != null) 
+        {
+            textComponent.text = DexterityController.CalculateResult().ToString();
+        }
     }
 
     private void MoveByTracker() 
@@ -55,9 +66,11 @@ public class PlayerController : DbConnect
         {
             MoveByTracker();
         }
+        SetScore();
     }
 
-    void OnCollisionEnter2D(Collision2D col) {
+    void OnCollisionEnter2D(Collision2D col) 
+    {
         if(col.gameObject.tag == "obstacle") 
         {
             int score = DexterityController.CalculateResult();

@@ -6,8 +6,8 @@ public class DexterityController : MonoBehaviour
     private static int destroyedObstacles = 0;
     private static int catchedBonuses = 0;
 
-    private static int obstacleWeight = 1;
-    private static int bonusWeight = 5;
+    private static int obstacleWeight = 2;
+    private static int bonusWeight = 10;
 
     public static void DestroyObstacle() 
     {
@@ -28,4 +28,10 @@ public class DexterityController : MonoBehaviour
     {
         return CalculateResult().ToString();
     } 
+
+    public static void ClearPoints()
+    {
+        destroyedObstacles = 0;
+        catchedBonuses = 0;
+    }
 }

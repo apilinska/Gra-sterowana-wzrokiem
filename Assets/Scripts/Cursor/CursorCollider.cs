@@ -22,7 +22,7 @@ public class CursorCollider : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D col) 
     {
-        if(col.gameObject.tag == "cursor") 
+        if(col.gameObject.tag == "cursor" && this.onCollision) 
         {
             this.onCollision = false;
             var pointer = new PointerEventData(EventSystem.current);

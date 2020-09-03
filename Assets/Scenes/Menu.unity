@@ -581,6 +581,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 131763142}
     m_Modifications:
+    - target: {fileID: 5164978645449281531, guid: 10818a747333f6449992486cf5ea071f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164978645449281531, guid: 10818a747333f6449992486cf5ea071f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 7078283709648845322, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_Sprite
@@ -954,6 +964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 576376226}
+  cur_text: {fileID: 0}
 --- !u!114 &1318318246 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7078283711004473639, guid: 10818a747333f6449992486cf5ea071f,
@@ -973,6 +984,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 131763142}
     m_Modifications:
+    - target: {fileID: 5164978645449281531, guid: 10818a747333f6449992486cf5ea071f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 7078283709648845322, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_Sprite
@@ -982,12 +998,12 @@ PrefabInstance:
     - target: {fileID: 7078283710585304043, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_Text
-      value: "LOGIK\u0118 MATEMATYCZN\u0104"
+      value: "ARYTMETYK\u0118"
       objectReference: {fileID: 0}
     - target: {fileID: 7078283710585304045, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_Name
-      value: "LOGIK\u0118 MATEMATYCZN\u0104"
+      value: "ARYTMETYK\u0118"
       objectReference: {fileID: 0}
     - target: {fileID: 7078283711004473638, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
@@ -1312,7 +1328,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 250, y: 50}
-  m_SizeDelta: {x: 650, y: -500}
+  m_SizeDelta: {x: 680, y: -500}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1430437625
 MonoBehaviour:
@@ -1810,6 +1826,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 131763142}
     m_Modifications:
+    - target: {fileID: 5164978645449281531, guid: 10818a747333f6449992486cf5ea071f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164978645449281531, guid: 10818a747333f6449992486cf5ea071f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 7078283711004473656, guid: 10818a747333f6449992486cf5ea071f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2158,6 +2184,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233545487472093741, guid: accb2572ad31f1a4085232c5a4ece193,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233545487472093741, guid: accb2572ad31f1a4085232c5a4ece193,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: accb2572ad31f1a4085232c5a4ece193, type: 3}

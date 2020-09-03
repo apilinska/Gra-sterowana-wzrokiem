@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="35.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Board" Collapsed="true">
+    <Position X="27.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABgAAAAIAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Math\MathController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardController" Collapsed="true">
+    <Position X="23" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAKQAAKIIBQAAAAgAgABAECBAAAgIKAAAAAQAIAA=</HashCode>
+      <FileName>Assets\Scripts\Math\BoardController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardGenerator" Collapsed="true">
+    <Position X="29.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACQAAAAACAAAAAEABAAAAEAgABAABCIIAAAAQAAAAE=</HashCode>
+      <FileName>Assets\Scripts\Math\BoardGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardRows" Collapsed="true">
+    <Position X="27.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Math\BoardController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BonusController" Collapsed="true">
+    <Position X="34" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Dexterity\BonusController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonBoxController" Collapsed="true">
+    <Position X="34" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgAAAAACAARAAAAADAggVAAAAAAAAQKAEAAgAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Math\ButtonBoxController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Buttons" Collapsed="true">
+    <Position X="29.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SceneManagment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cell" Collapsed="true">
+    <Position X="27.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Math\MathController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CursorCollider" Collapsed="true">
+    <Position X="32" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgACQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Cursor\CursorCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbCommands" Collapsed="true">
+    <Position X="25.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACAQBIAAgAAAgAAAAAAIAAAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Scripts\Database\DbCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConnect" Collapsed="true">
+    <Position X="26.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAIAAGAAAAgAC4AjEBFAAQRAACABCAEhQAIQYAA=</HashCode>
+      <FileName>Assets\Scripts\Database\DbConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DexterityController" Collapsed="true">
+    <Position X="34" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACACCAAAAAgBAAAABAACIAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Dexterity\DexterityController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EyeCursor" Collapsed="true">
+    <Position X="34" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAJAAACABAgQAAAAAAAAAAAAAAAAACAAAAAQgAYg=</HashCode>
+      <FileName>Assets\Scripts\Cursor\EyeCursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameData" Collapsed="true">
+    <Position X="25.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAEAAAAAAAAAAAAAAIAQAA=</HashCode>
+      <FileName>Assets\Scripts\Initialize\GameData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIController" Collapsed="true">
+    <Position X="25.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAgABAAAIAAAAAAEABAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUI\GUIController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitializeController" Collapsed="true">
+    <Position X="23" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAAgAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Initialize\InitializeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyboardController" Collapsed="true">
+    <Position X="34" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAGAUACAAIIAAhBFAQAEQAjAAAAAUAQBAAAA=</HashCode>
+      <FileName>Assets\Scripts\Keyboard\KeyboardController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyController" Collapsed="true">
+    <Position X="34" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAABAAAAAEAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Keyboard\KeyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Log" Collapsed="true">
+    <Position X="25.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAACAIAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MathController" Collapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAACAAAABAAIAAACUACASEAAAAAgBAA=</HashCode>
+      <FileName>Assets\Scripts\Math\MathController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemoryController" Collapsed="true">
+    <Position X="25.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JRAAAAAAAEAIAAAAAAAAQAAAAAAAAEAAEEAABABABAA=</HashCode>
+      <FileName>Assets\Scripts\Memory\MemoryController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuController" Collapsed="true">
+    <Position X="27.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAEAAEAAAAgAJAAAAAAAAAIAABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewUserSelectController" Collapsed="true">
+    <Position X="25.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Users\NewUserSelectController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumberBoxController" Collapsed="true">
+    <Position X="34" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAACAARAAAAADAAgQAAAAAAAAEKAAAAgAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Math\NumberBoxController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Numbers" Collapsed="true">
+    <Position X="29.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Math\BoardController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObstacleController" Collapsed="true">
+    <Position X="34" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAAABAAAAAAAAAAAAAAAAAAQAgAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Dexterity\ObstacleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true">
+    <Position X="23" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIEAAAACAAIAAAAAAgAAAAAEAAAQAgAAgwAAAAACA=</HashCode>
+      <FileName>Assets\Scripts\Dexterity\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomizeNumber" Collapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABAACAAgAAABAgAAAAEAAAABAAAAAAAACABAAA=</HashCode>
+      <FileName>Assets\Scripts\Memory\RandomizeNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RankingBoard" Collapsed="true">
+    <Position X="29.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAwA=</HashCode>
+      <FileName>Assets\Scripts\Database\DbModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RankingBoardController" Collapsed="true">
+    <Position X="32" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAASAAAAAABAAAAACAAAAAAAAIAgCAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Ranking board\RankingBoardController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RankingValues" Collapsed="true">
+    <Position X="27.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABgAAAAAIAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Ranking board\RankingValues.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManagment" Collapsed="true">
+    <Position X="34" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAIAAAgABAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SceneManagment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectNumber" Collapsed="true">
+    <Position X="29.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAIACACAEAABAAAgABAAEAAAAABABAAAgABAAA=</HashCode>
+      <FileName>Assets\Scripts\Memory\SelectNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowResult" Collapsed="true">
+    <Position X="34" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAgAAAAABEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ShowResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpawnObstaclesController" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAACCEAAAEAAgABABgAAgAAAAIAAGAQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Dexterity\SpawnObstaclesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="User" Collapsed="true">
+    <Position X="27.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Database\DbModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserController" Collapsed="true">
+    <Position X="25.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAABACAAAAAAIAAAkABAABAIACAgAAAAAAEQAAA=</HashCode>
+      <FileName>Assets\Scripts\Users\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserSelectController" Collapsed="true">
+    <Position X="29.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Users\UserSelectController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeviceData">
+    <Position X="32" Y="9.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="DeviceData.EyeData" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Device\DeviceData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DeviceData.Values" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Device\DeviceData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DeviceData.Frame" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Device\DeviceData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DeviceData.Eye" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Device\DeviceData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DeviceData.Coordinates" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Device\DeviceData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQgEAAAACAAAAEAAAACAAAAAEAAAAAAEAEAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Device\DeviceData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ButtonName" Collapsed="true">
+    <Position X="23" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgACAAAAAAAAAQgAAAAAQQQBAAAIAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game" Collapsed="true">
+    <Position X="23" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAgAQAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameMode" Collapsed="true">
+    <Position X="23" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="KeyType" Collapsed="true">
+    <Position X="23" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEEACAAAAAQAABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="State" Collapsed="true">
+    <Position X="23" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

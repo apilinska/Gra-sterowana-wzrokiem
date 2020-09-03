@@ -15,7 +15,8 @@ public enum KeyType
 	Char,
 	Clear,
 	Delete,
-	Enter
+	Enter,
+	Login
 }
 
 public enum Game 

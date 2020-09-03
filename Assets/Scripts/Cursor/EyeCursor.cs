@@ -56,7 +56,8 @@ public class EyeCursor : MonoBehaviour
 
     void Update()
     {
-        if(focus) {
+        if(focus) 
+        {
             if(!isPointerVisible()) 
             {
                 showPointer();

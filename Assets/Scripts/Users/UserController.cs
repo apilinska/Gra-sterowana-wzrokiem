@@ -67,7 +67,7 @@ public class UserController : DbConnect
 
     private void SetUsersData() 
     {
-        if(users.Count > 0) 
+        if(users != null && users.Count > 0) 
         {
             foreach(var user in users) 
             {
