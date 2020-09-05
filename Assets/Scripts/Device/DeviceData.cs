@@ -114,34 +114,44 @@ public class DeviceData : MonoBehaviour
     private void ReadPositionFromFile()
     {
         float? x = null, y = null;
-        if(File.Exists(path)) {
+        if(File.Exists(path)) 
+        {
             FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             StreamReader fileReader = new StreamReader(fileStream);
             EyeData data = new EyeData();
             Frame frame = null;
+            string line = "";
 
             while (!fileReader.EndOfStream)
             {
-                string line = fileReader.ReadLine();
-                data = JsonUtility.FromJson<EyeData>(line);
-                frame = GetFrame(data);
-                if(frame != null) 
-                {
-                    x = frame.avg.x;
-                    y = frame.avg.y;
-                }
+                line = fileReader.ReadLine();
             }
+
             fileReader.Close();
             fileStream.Close();
 
-            if(x != 0 && y != 0) 
+            if(!String.IsNullOrEmpty(line)) 
             {
-                this.cursor_pos = new Vector2((float)x, (float)y);
-                this.cursor_world_pos = Camera.main.ScreenToWorldPoint(new Vector3(cursor_pos.x, Camera.main.pixelHeight - cursor_pos.y, distance));
-                this.cursor_world_pos *= distance;
-                Vector3 newPos = new Vector3(cursor_world_pos.x, cursor_world_pos.y, cursor.transform.position.z);
-                cursor.transform.position = newPos;
-            } 
+                data = JsonUtility.FromJson<EyeData>(line);
+                if(data.category == "tracker") 
+                {
+                    frame = GetFrame(data);
+                    if(frame != null) 
+                    {
+                        x = frame.avg.x;
+                        y = frame.avg.y;
+
+                        if(x != null && y != null && x != 0 && y != 0) 
+                        {
+                            this.cursor_pos = new Vector2((float)x, (float)y);
+                            this.cursor_world_pos = Camera.main.ScreenToWorldPoint(new Vector3(cursor_pos.x, Camera.main.pixelHeight - cursor_pos.y, distance));
+                            this.cursor_world_pos *= distance;
+                            Vector3 newPos = new Vector3(cursor_world_pos.x, cursor_world_pos.y, cursor.transform.position.z);
+                            cursor.transform.position = newPos;
+                        } 
+                    }
+                }
+            }
         }
     }
 }

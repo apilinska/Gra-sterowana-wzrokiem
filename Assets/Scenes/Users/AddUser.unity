@@ -2370,7 +2370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ae8bd0b60d79d74aa2a8d9276d1d97c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b42c0d371be20e446a699c3e43cd9748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6519,7 +6519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 1030604985}
-  cur_text: {fileID: 0}
 --- !u!224 &1320707286 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8602916121695858363, guid: 34f9df9dc4ae3974abe2908cc886e0cb,
